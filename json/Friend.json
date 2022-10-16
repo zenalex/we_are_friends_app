@@ -1,0 +1,44 @@
+{
+    "typeName": "Friend",
+    "databaseType": "Друзья",
+    "databaseTypeNamespace": "WeAreFriends.Метаданные.Справочники",
+
+    "fields": [
+        {
+            "name": "Id",
+            "databaseName": "Идентификатор",
+            "type": "String",
+            "isPrimary": "true"
+        },
+        {
+            "name": "Name",
+            "databaseName": "Наименование",
+            "type": "String",
+            "maxLength": 0
+        },
+        {
+            "name": "FirstName",
+            "databaseName": "Имя",
+            "type": "String",
+            "maxLength": 0
+        },
+        {
+            "name": "LastName",
+            "databaseName": "Фамилия",
+            "type": "String",
+            "maxLength": 0
+        },
+        {
+            "name": "Phone",
+            "databaseName": "Телефон",
+            "type": "String",
+            "maxLength": 0
+        },
+        {
+            "name": "UserId",
+            "databaseName": "Пользователь",
+            "type": "Guid",
+            "writeOnClient": false
+        }
+    ]
+}

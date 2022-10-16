@@ -1,0 +1,45 @@
+{
+    "typeName": "EventFriendTable",
+    "databaseType": "СправочникиМероприятияТаблицаУчастники.Строка",
+    "databaseTypeNamespace": "WeAreFriends.Метаданные._SystemTables",
+
+    "fields": [
+        {
+            "name": "Id",
+            "databaseName": "Идентификатор",
+            "type": "String",
+            "isPrimary": "true"
+        },
+        {
+            "name": "OwnerId",
+            "databaseName": "Владелец",
+            "type": "Reference",
+            "referenceName": "Owner",
+            "referenceType": "Event"
+        },
+        {
+            "name": "FriendId",
+            "databaseName": "Друг",
+            "databaseType": "Друзья",
+            "type": "Reference",
+            "referenceName": "Friend",
+            "referenceType": "Friend",
+            "userVisibility": "true",
+            "userName": "Друг"
+        },
+        {
+            "name": "SumNeeded",
+            "databaseName": "НеобходимаяСумма",
+            "type": "double",
+            "userVisibility": "true",
+            "userName": "Друг"
+        },
+        {
+            "name": "SumAcquired",
+            "databaseName": "СданнаяСумма",
+            "type": "double",
+            "userVisibility": "true",
+            "userName": "Друг"
+        }
+    ]
+}

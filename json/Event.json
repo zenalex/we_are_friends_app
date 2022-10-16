@@ -1,0 +1,42 @@
+{
+    "typeName": "Event",
+    "databaseType": "Мероприятия",
+    "databaseTypeNamespace": "WeAreFriends.Метаданные.Справочники",
+
+    "fields": [
+        {
+            "name": "Id",
+            "databaseName": "Идентификатор",
+            "type": "String",
+            "isPrimary": "true"
+        },
+        {
+            "name": "Date",
+            "databaseName": "Дата",
+            "type": "DateTime"
+        },
+        {
+            "name": "SumNeeded",
+            "databaseName": "НеобходимаяСумма",
+            "type": "double"
+        },
+        {
+            "name": "SumRaised",
+            "databaseName": "СобраннаяСумма",
+            "type": "double"
+        },
+        {
+            "name": "UserId",
+            "databaseName": "Пользователь",
+            "type": "Guid",
+            "writeOnClient": false
+        },
+        {
+            "name": "FriendTable",
+            "databaseName": "ТаблицаУчастники",
+            "type": "List<Reference>",
+            "referenceType": "EventFriendTable",
+            "alwaysReturnNested": "true"
+        }
+    ]
+}

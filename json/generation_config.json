@@ -1,0 +1,45 @@
+{
+    "targetFramework": "net472",
+    "cSharpPath": "C:/Users/pro5/source/repos/FriendsServer",
+    "cSharpNamespace": "WeAreFriendsServer",
+    "dartPath": "/Users/alex/Develop/we_are_friends_app/lib/model",
+    "applicationName": "we_are_friends",
+    "controller": [
+      {
+        "apiPrefix": "Api",
+        "className": "DataController",
+        "implControllerName": "DataStrategy",
+        "implAuthControllerName": "AuthStrategy",
+        "useAuthorization": "true",
+        "dataType": "NsgDataItem",
+        "serverUri": "http://alex.nsgsoft.ru:5078",
+        "method": [
+          {
+            "name": "Friend",
+            "apiPrefix": "Friend",
+            "authorize": "user",
+            "getterType": "post",
+            "allowPost": "true",
+            "dataTypeFile": "Friend.json"
+          },
+          {
+            "name": "Event",
+            "apiPrefix": "Event",
+            "authorize": "user",
+            "getterType": "post",
+            "allowPost": "true",
+            "dataTypeFile": "Event.json"
+          },
+          {
+            "name": "EventFriendTable",
+            "apiPrefix": "EventFriendTable",
+            "authorize": "user",
+            "allowGetter": "false",
+            "allowPost": "false",
+            "allowDelete": "false",
+            "dataTypeFile": "EventFriendTable.json"
+          }
+        ]
+      }
+    ]
+}
