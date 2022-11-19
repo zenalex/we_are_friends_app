@@ -21,13 +21,17 @@ class DataController extends DataControllerGenerated {
       provider = NsgDataProvider(
           applicationName: 'we_are_friends',
           firebaseToken: '',
-          applicationVersion: '');
+          applicationVersion: '',
+          allowConnect: false);
       //firebaseToken: nsgFirebase == null ? '' : nsgFirebase!.firebasetoken);
       provider!.getLoginWidget = (provider) => LoginPage(provider);
       provider!.getVerificationWidget =
           (provider) => VerificationPage(provider);
     }
+
     await super.onInit();
+    var db = NsgLocalDb.instance;
+    await db.init('we_are_friends');
   }
 
   @override

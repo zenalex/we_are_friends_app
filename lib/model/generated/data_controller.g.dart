@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_data/nsg_data.dart';
+// ignore: depend_on_referenced_packages
 import 'package:package_info_plus/package_info_plus.dart';
 import '../_nsg_server_options.dart';
 import '../data_controller_model.dart';

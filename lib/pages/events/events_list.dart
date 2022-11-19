@@ -4,7 +4,6 @@ import 'package:nsg_controls/nsg_controls.dart';
 
 import '../../app_pages.dart';
 import '../../model/generated/event.g.dart';
-import '../../model/generated/friend.g.dart';
 import 'events_controller.dart';
 
 class EventsListPage extends GetView<EventsController> {

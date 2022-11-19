@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:we_are_friends_app/app_pages.dart';
-import 'package:we_are_friends_app/model/generated/friend.g.dart';
 
 import '../../model/data_controller_model.dart';
-import '../../model/generated/event.g.dart';
 import 'events_controller.dart';
 
 class EventsPage extends GetView<EventsController> {

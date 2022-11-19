@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
-import 'package:we_are_friends_app/model/friend.dart';
 
 import '../../app_pages.dart';
 import '../../model/generated/friend.g.dart';
