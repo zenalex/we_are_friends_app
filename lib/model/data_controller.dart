@@ -30,8 +30,7 @@ class DataController extends DataControllerGenerated {
     }
 
     await super.onInit();
-    var db = NsgLocalDb.instance;
-    await db.init('we_are_friends');
+    
   }
 
   @override
