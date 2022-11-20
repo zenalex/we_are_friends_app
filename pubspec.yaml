@@ -1,11 +1,11 @@
 name: we_are_friends_app
-description: A new Flutter project.
+description:  Приложение для совместного сбора денег
 
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 
-version: 0.0.1+1
+version: 0.0.1+4
 
 environment:
   sdk: '>=2.18.2 <3.0.0'

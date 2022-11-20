@@ -34,8 +34,8 @@ class DataController extends DataControllerGenerated {
   }
 
   @override
-  Future loadData() async {
-    await super.loadData();
+  Future loadProviderData() async {
+    await super.loadProviderData();
     _gotoMainPage();
   }
 
