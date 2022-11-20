@@ -16,6 +16,26 @@
             "type": "DateTime"
         },
         {
+            "name": "Name",
+            "databaseName": "Наименование",
+            "type": "String"
+        },
+        {
+            "name": "Comment",
+            "databaseName": "Комментарий",
+            "type": "String"
+        },
+        {
+            "name": "EventGroupId",
+            "databaseName": "ГруппаМероприятий",
+            "databaseType": "ГруппаМероприятий",
+            "type": "Reference",
+            "referenceName": "EventGroup",
+            "referenceType": "EventGroup",
+            "userVisibility": "true",
+            "userName": "Группа мероприятий"
+        },
+        {
             "name": "SumNeeded",
             "databaseName": "НеобходимаяСумма",
             "type": "double"
@@ -37,6 +57,11 @@
             "type": "List<Reference>",
             "referenceType": "EventFriendTable",
             "alwaysReturnNested": "true"
+        },
+        {
+            "name": "IsFinished",
+            "databaseName": "Завершено",
+            "type": "bool"
         }
     ]
 }

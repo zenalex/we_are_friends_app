@@ -1,0 +1,19 @@
+{
+    "typeName": "EventGroup",
+    "databaseType": "ГруппаМероприятий",
+    "databaseTypeNamespace": "WeAreFriends.Метаданные.Справочники",
+
+    "fields": [
+        {
+            "name": "Id",
+            "databaseName": "Идентификатор",
+            "type": "String",
+            "isPrimary": "true"
+        },
+        {
+            "name": "Name",
+            "databaseName": "Наименование",
+            "type": "String"
+        }
+    ]
+}

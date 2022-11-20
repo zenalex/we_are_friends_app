@@ -5,6 +5,7 @@ import 'package:we_are_friends_app/app_pages.dart';
 
 import '../../model/data_controller_model.dart';
 import 'events_controller.dart';
+import 'events_image_controller.dart';
 
 class EventsPage extends GetView<EventsController> {
   EventsPage({Key? key}) : super(key: key);
@@ -52,6 +53,31 @@ class EventsPage extends GetView<EventsController> {
                             }),
                         NsgInput(
                           dataItem: controller.currentItem,
+                          fieldName: EventGenerated.nameName,
+                          label: 'Название мероприятия',
+                        ),
+                        NsgInput(
+                          dataItem: controller.currentItem,
+                          fieldName: EventGenerated.nameEventGroupId,
+                          //TODO: контроллер и форма
+                          // selectionController: Get.find<FriendsController>(),
+                          // selectionForm: Routes.friendsList,
+                          label: 'Группа мероприятий',
+                        ),
+                        NsgInput(
+                          dataItem: controller.currentItem,
+                          fieldName: EventGenerated.nameComment,
+                          label: 'Описание',
+                          minLines: 3,
+                          maxLines: 6,
+                        ),
+                        NsgInput(
+                          dataItem: controller.currentItem,
+                          fieldName: EventGenerated.nameIsFinished,
+                          label: 'Мероприятие завершено ',
+                        ),
+                        NsgInput(
+                          dataItem: controller.currentItem,
                           fieldName: EventGenerated.nameSumNeeded,
                           label: 'Необходимая сумма',
                         ),
@@ -60,6 +86,7 @@ class EventsPage extends GetView<EventsController> {
                           fieldName: EventGenerated.nameSumRaised,
                           label: 'Собранная сумма',
                         ),
+                        imageGallery(),
                         NsgTable(
                           controller: Get.find<EventsFriendTableController>(),
                           elementEditPageName: Routes.eventsPageRow,
@@ -88,6 +115,15 @@ class EventsPage extends GetView<EventsController> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget imageGallery() {
+    return NsgFilePicker(
+      showAsWidget: true,
+      callback: (value) {},
+      objectsList: Get.find<EventImageController>().images,
+      allowedFileFormats: const [],
     );
   }
 }

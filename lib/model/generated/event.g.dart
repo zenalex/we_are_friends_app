@@ -8,12 +8,17 @@ import '../data_controller_model.dart';
 class EventGenerated extends NsgDataItem {
   static const nameId = 'id';
   static const nameDate = 'date';
+  static const nameName = 'name';
+  static const nameComment = 'comment';
+  static const nameEventGroupId = 'eventGroupId';
   static const nameSumNeeded = 'sumNeeded';
   static const nameSumRaised = 'sumRaised';
   static const nameUserId = 'userId';
   static const nameFriendTable = 'friendTable';
+  static const nameIsFinished = 'isFinished';
 
   static final Map<String, String> fieldNameDict = {
+   nameEventGroupId: 'Группа мероприятий',
  };
 
   @override
@@ -23,11 +28,19 @@ class EventGenerated extends NsgDataItem {
   void initialize() {
     addField(NsgDataStringField(nameId), primaryKey: true);
     addField(NsgDataDateField(nameDate), primaryKey: false);
+    addField(NsgDataStringField(nameName), primaryKey: false);
+    addField(NsgDataStringField(nameComment), primaryKey: false);
+    addField(NsgDataReferenceField<EventGroup>(nameEventGroupId), primaryKey: false);
     addField(NsgDataDoubleField(nameSumNeeded), primaryKey: false);
     addField(NsgDataDoubleField(nameSumRaised), primaryKey: false);
     addField(NsgDataStringField(nameUserId), primaryKey: false);
     addField(NsgDataReferenceListField<EventFriendTable>(nameFriendTable), primaryKey: false);
+    addField(NsgDataBoolField(nameIsFinished), primaryKey: false);
+    fieldList.fields[nameEventGroupId]?.presentation = 'Группа мероприятий';
   }
+
+  @override
+  String toString() => name;
 
   @override
   NsgDataItem getNewObject() => Event();
@@ -43,6 +56,27 @@ class EventGenerated extends NsgDataItem {
   DateTime get date => getFieldValue(nameDate) as DateTime;
 
   set date(DateTime value) => setFieldValue(nameDate, value);
+
+  /// Наименование
+  String get name => getFieldValue(nameName).toString();
+
+  set name(String value) => setFieldValue(nameName, value);
+
+  /// Комментарий
+  String get comment => getFieldValue(nameComment).toString();
+
+  set comment(String value) => setFieldValue(nameComment, value);
+
+  /// ГруппаМероприятий
+  String get eventGroupId => getFieldValue(nameEventGroupId).toString();
+  EventGroup get eventGroup => getReferent<EventGroup>(nameEventGroupId);
+  Future<EventGroup> eventGroupAsync() async {
+   return await getReferentAsync<EventGroup>(nameEventGroupId);
+  }
+
+  set eventGroupId(String value) => setFieldValue(nameEventGroupId, value);
+  set eventGroup(EventGroup value) =>
+    setFieldValue(nameEventGroupId, value.id);
 
   /// НеобходимаяСумма
   double get sumNeeded => getFieldValue(nameSumNeeded) as double;
@@ -62,6 +96,11 @@ class EventGenerated extends NsgDataItem {
   /// ТаблицаУчастники
   NsgDataTable<EventFriendTable> get friendTable => NsgDataTable<EventFriendTable>(owner: this, fieldName: nameFriendTable);
 
+
+  /// Завершено
+  bool get isFinished => getFieldValue(nameIsFinished) as bool;
+
+  set isFinished(bool value) => setFieldValue(nameIsFinished, value);
 
   @override
   String get apiRequestItems {

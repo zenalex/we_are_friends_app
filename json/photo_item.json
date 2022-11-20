@@ -1,0 +1,30 @@
+{
+    "typeName": "PhotoItem",
+    "databaseType": "Картинки",
+    "databaseTypeNamespace": "WeAreFriends.Метаданные.Справочники",
+    "fields": [
+      {
+        "name": "Id",
+        "databaseName": "Идентификатор",
+        "type": "String",
+        "isPrimary": "true"
+      },
+      {
+        "name": "Name",
+        "databaseName": "Наименование",
+        "type": "String"
+      },
+      {
+        "name": "Photo",
+        "databaseName": "Картинка",
+        "type": "Image"
+      },
+      {
+        "name": "OwnerId",
+        "databaseName": "Владелец",
+        "type": "Reference",
+        "referenceName": "Owner",
+        "referenceType": "Event"
+      }
+    ]
+  }

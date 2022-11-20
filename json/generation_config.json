@@ -2,7 +2,7 @@
     "targetFramework": "net472",
     "cSharpPath": "C:/Users/pro5/source/repos/FriendsServer",
     "cSharpNamespace": "WeAreFriendsServer",
-    "dartPath": "/Users/alex/Develop/we_are_friends_app/lib/model",
+    "dartPath": "x:/Projects2/flutter2/we_are_friends_app/lib/model",
     "applicationName": "we_are_friends",
     "controller": [
       {
@@ -38,6 +38,22 @@
             "allowPost": "false",
             "allowDelete": "false",
             "dataTypeFile": "EventFriendTable.json"
+          },
+          {
+            "name": "EventGroup",
+            "apiPrefix": "EventGroup",
+            "authorize": "user",
+            "getterType": "post",
+            "allowPost": "true",
+            "dataTypeFile": "event_group.json"
+          },
+          {
+            "name": "PhotoItem",
+            "apiPrefix": "PhotoItem",
+            "authorize": "user",
+            "getterType": "post",
+            "allowPost": "true",
+            "dataTypeFile": "photo_item.json"
           }
         ]
       }

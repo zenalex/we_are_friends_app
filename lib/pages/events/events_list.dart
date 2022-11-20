@@ -19,26 +19,33 @@ class EventsListPage extends GetView<EventsController> {
       elementEditPage: Routes.eventsPage,
       columns: [
         NsgTableColumn(
-            name: EventGenerated.nameDate,
-            presentation: 'Дата',
+            name: EventGenerated.nameDate, presentation: 'Дата', width: 100),
+        NsgTableColumn(
+            name: EventGenerated.nameEventGroupId,
+            presentation: 'Группа',
+            width: 100),
+        NsgTableColumn(
+            name: EventGenerated.nameName,
+            presentation: 'Мероприятие',
             width: 200),
         NsgTableColumn(
             name: EventGenerated.nameSumNeeded,
             presentation: 'Требуемая сумма',
-            width: 200,
+            width: 100,
             totalSum: true),
         NsgTableColumn(
             name: EventGenerated.nameSumRaised,
             presentation: 'Собранная сумма',
-            width: 200,
+            width: 100,
             totalSum: true),
       ],
-      availableButtons: NsgTableMenuButtonType.allExceptSelected(
-          [NsgTableMenuButtonType.filterPeriod,
-           NsgTableMenuButtonType.columnsSelect,
-           NsgTableMenuButtonType.columnsSize,
-           NsgTableMenuButtonType.favorites,
-           NsgTableMenuButtonType.recent]),
+      availableButtons: NsgTableMenuButtonType.allExceptSelected([
+        NsgTableMenuButtonType.filterPeriod,
+        NsgTableMenuButtonType.columnsSelect,
+        NsgTableMenuButtonType.columnsSize,
+        NsgTableMenuButtonType.favorites,
+        NsgTableMenuButtonType.recent
+      ]),
     );
   }
 }

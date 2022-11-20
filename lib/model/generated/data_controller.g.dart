@@ -20,6 +20,10 @@ class DataControllerGenerated extends NsgBaseController {
     NsgDataClient.client.registerDataItem(Event(), remoteProvider: provider);
     NsgDataClient.client
         .registerDataItem(EventFriendTable(), remoteProvider: provider);
+    NsgDataClient.client
+        .registerDataItem(EventGroup(), remoteProvider: provider);
+    NsgDataClient.client
+        .registerDataItem(PhotoItem(), remoteProvider: provider);
     provider!.useNsgAuthorization = true;
     var db = NsgLocalDb.instance;
     await db.init('we_are_friends');
@@ -30,11 +34,6 @@ class DataControllerGenerated extends NsgBaseController {
 
   @override
   Future loadProviderData() async {
-    currentStatus = RxStatus.success();
-    sendNotify();
-  }
-
-  Future loadData() async {
     currentStatus = RxStatus.success();
     sendNotify();
   }
