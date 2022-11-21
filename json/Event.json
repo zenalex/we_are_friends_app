@@ -59,9 +59,19 @@
             "alwaysReturnNested": "true"
         },
         {
+            "name": "PhotoTable",
+            "type": "List<Reference>",
+            "referenceType": "EventPhotoTable",
+            "alwaysReturnNested": "true"
+        },
+        {
             "name": "IsFinished",
             "databaseName": "Завершено",
             "type": "bool"
+        },
+        {
+            "name": "FinishDate",
+            "type": "DateTime"
         }
     ]
 }

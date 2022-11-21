@@ -1,0 +1,28 @@
+{
+    "typeName": "EventPhotoTable",
+    "fields": [
+        {
+            "name": "Id",
+            "type": "String",
+            "isPrimary": "true"
+        },
+        {
+            "name": "OwnerId",
+            "type": "Reference",
+            "referenceName": "Owner",
+            "referenceType": "Event"
+        },
+        {
+            "name": "PhotoItemId",
+            "type": "Reference",
+            "referenceName": "PhotoItem",
+            "referenceType": "PhotoItem",
+            "userVisibility": "true"
+        },
+        {
+            "name": "Name",
+            "type": "String",
+            "userVisibility": "true"
+        }
+    ]
+}

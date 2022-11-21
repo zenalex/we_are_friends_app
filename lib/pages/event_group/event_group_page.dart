@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
-import 'package:we_are_friends_app/model/generated/friend.g.dart';
 
-import 'friends_controller.dart';
+import '../../model/data_controller_model.dart';
+import 'event_group_controller.dart';
 
-class FriendPage extends GetView<FriendsController> {
-  FriendPage({Key? key}) : super(key: key);
+class EventGroupPage extends GetView<EventGroupController> {
+  EventGroupPage({Key? key}) : super(key: key);
 
-  final _textTitle = 'Редактирование'.toUpperCase();
-  final _textTitleNew = 'Добавление'.toUpperCase();
+  final _textTitle = 'Редактирование группы'.toUpperCase();
+  final _textTitleNew = 'Добавление группы'.toUpperCase();
 
   @override
   Widget build(BuildContext context) {
@@ -46,19 +46,8 @@ class FriendPage extends GetView<FriendsController> {
                           children: [
                             NsgInput(
                               dataItem: controller.currentItem,
-                              fieldName: FriendGenerated.nameLastName,
-                              label: 'Фамилия',
-                            ),
-                            NsgInput(
-                              dataItem: controller.currentItem,
-                              fieldName: FriendGenerated.nameFirstName,
-                              label: 'Имя',
-                            ),
-                            NsgInput(
-                              dataItem: controller.currentItem,
-                              fieldName: FriendGenerated.namePhone,
-                              maskType: NsgInputMaskType.phone,
-                              label: 'Номер телефона',
+                              fieldName: EventGroupGenerated.nameName,
+                              label: 'Наименование',
                             ),
                           ],
                         ),

@@ -4,6 +4,7 @@ import 'package:nsg_controls/nsg_controls.dart';
 import 'package:we_are_friends_app/app_pages.dart';
 
 import '../../model/data_controller_model.dart';
+import '../event_group/event_group_controller.dart';
 import 'events_controller.dart';
 import 'events_image_controller.dart';
 
@@ -59,9 +60,8 @@ class EventsPage extends GetView<EventsController> {
                         NsgInput(
                           dataItem: controller.currentItem,
                           fieldName: EventGenerated.nameEventGroupId,
-                          //TODO: контроллер и форма
-                          // selectionController: Get.find<FriendsController>(),
-                          // selectionForm: Routes.friendsList,
+                          selectionController: Get.find<EventGroupController>(),
+                          selectionForm: Routes.eventGroupList,
                           label: 'Группа мероприятий',
                         ),
                         NsgInput(

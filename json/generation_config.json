@@ -54,6 +54,15 @@
             "getterType": "post",
             "allowPost": "true",
             "dataTypeFile": "photo_item.json"
+          },
+          {
+            "name": "EventPhotoTable",
+            "apiPrefix": "EventPhotoTable",
+            "authorize": "user",
+            "allowGetter": "false",
+            "allowPost": "false",
+            "allowDelete": "false",
+            "dataTypeFile": "event_photo_table.json"
           }
         ]
       }

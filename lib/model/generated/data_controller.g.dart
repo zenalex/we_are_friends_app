@@ -10,28 +10,28 @@ class DataControllerGenerated extends NsgBaseController {
   @override
   Future onInit() async {
     final info = await PackageInfo.fromPlatform();
-    provider ??= NsgDataProvider(
-        applicationName: 'we_are_friends',
-        applicationVersion: info.version,
-        firebaseToken: '');
-    provider!.serverUri = NsgServerOptions.serverUriDataController;
-
-    NsgDataClient.client.registerDataItem(Friend(), remoteProvider: provider);
-    NsgDataClient.client.registerDataItem(Event(), remoteProvider: provider);
-    NsgDataClient.client
-        .registerDataItem(EventFriendTable(), remoteProvider: provider);
-    NsgDataClient.client
-        .registerDataItem(EventGroup(), remoteProvider: provider);
-    NsgDataClient.client
-        .registerDataItem(PhotoItem(), remoteProvider: provider);
+    provider ??= NsgDataProvider(applicationName: 'we_are_friends', applicationVersion: info.version, firebaseToken: '');
+  provider!.serverUri = NsgServerOptions.serverUriDataController;
+  
+      NsgDataClient.client
+       .registerDataItem(Friend(), remoteProvider: provider);
+      NsgDataClient.client
+       .registerDataItem(Event(), remoteProvider: provider);
+      NsgDataClient.client
+       .registerDataItem(EventFriendTable(), remoteProvider: provider);
+      NsgDataClient.client
+       .registerDataItem(EventGroup(), remoteProvider: provider);
+      NsgDataClient.client
+       .registerDataItem(PhotoItem(), remoteProvider: provider);
+      NsgDataClient.client
+       .registerDataItem(EventPhotoTable(), remoteProvider: provider);
     provider!.useNsgAuthorization = true;
     var db = NsgLocalDb.instance;
     await db.init('we_are_friends');
     await provider!.connect(this);
-
+    
     super.onInit();
   }
-
   @override
   Future loadProviderData() async {
     currentStatus = RxStatus.success();

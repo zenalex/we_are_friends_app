@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
+import 'package:we_are_friends_app/pages/event_group/event_group_page.dart';
 import 'package:we_are_friends_app/pages/events/events_list.dart';
 import 'package:we_are_friends_app/pages/friends/friends_binding.dart';
 
+import 'pages/event_group/event_group_binding.dart';
+import 'pages/event_group/event_group_list.dart';
 import 'pages/events/events_binding.dart';
 import 'pages/events/events_page.dart';
 import 'pages/events/events_page_row.dart';
@@ -50,6 +53,16 @@ class AppPages {
       page: () => EventsPageRow(),
       binding: EventsBinding(),
     ),
+    GetPage(
+      name: Routes.eventGroupList,
+      page: () => const EventGroupListPage(),
+      binding: EventGroupBinding(),
+    ),
+    GetPage(
+      name: Routes.eventGroupPage,
+      page: () => EventGroupPage(),
+      binding: EventGroupBinding(),
+    ),
   ];
 }
 
@@ -60,5 +73,7 @@ abstract class Routes {
   static const friendsPage = '/friends_page';
   static const eventsList = '/events_list';
   static const eventsPage = '/events_page';
+  static const eventGroupList = '/event_group_list';
+  static const eventGroupPage = '/event_group_page';
   static const eventsPageRow = '/events_page_row';
 }

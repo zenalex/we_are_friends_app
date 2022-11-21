@@ -15,7 +15,9 @@ class EventGenerated extends NsgDataItem {
   static const nameSumRaised = 'sumRaised';
   static const nameUserId = 'userId';
   static const nameFriendTable = 'friendTable';
+  static const namePhotoTable = 'photoTable';
   static const nameIsFinished = 'isFinished';
+  static const nameFinishDate = 'finishDate';
 
   static final Map<String, String> fieldNameDict = {
    nameEventGroupId: 'Группа мероприятий',
@@ -35,7 +37,9 @@ class EventGenerated extends NsgDataItem {
     addField(NsgDataDoubleField(nameSumRaised), primaryKey: false);
     addField(NsgDataStringField(nameUserId), primaryKey: false);
     addField(NsgDataReferenceListField<EventFriendTable>(nameFriendTable), primaryKey: false);
+    addField(NsgDataReferenceListField<EventPhotoTable>(namePhotoTable), primaryKey: false);
     addField(NsgDataBoolField(nameIsFinished), primaryKey: false);
+    addField(NsgDataDateField(nameFinishDate), primaryKey: false);
     fieldList.fields[nameEventGroupId]?.presentation = 'Группа мероприятий';
   }
 
@@ -97,10 +101,17 @@ class EventGenerated extends NsgDataItem {
   NsgDataTable<EventFriendTable> get friendTable => NsgDataTable<EventFriendTable>(owner: this, fieldName: nameFriendTable);
 
 
+  NsgDataTable<EventPhotoTable> get photoTable => NsgDataTable<EventPhotoTable>(owner: this, fieldName: namePhotoTable);
+
+
   /// Завершено
   bool get isFinished => getFieldValue(nameIsFinished) as bool;
 
   set isFinished(bool value) => setFieldValue(nameIsFinished, value);
+
+  DateTime get finishDate => getFieldValue(nameFinishDate) as DateTime;
+
+  set finishDate(DateTime value) => setFieldValue(nameFinishDate, value);
 
   @override
   String get apiRequestItems {

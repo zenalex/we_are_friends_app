@@ -4,6 +4,7 @@ import 'package:nsg_data/nsg_data.dart';
 import '../../model/event.dart';
 import '../../model/event_friend_table.dart';
 import '../../model/generated/event.g.dart';
+import 'events_image_controller.dart';
 
 class EventsController extends NsgDataController<Event> {
   EventsController()
@@ -21,6 +22,15 @@ class EventsController extends NsgDataController<Event> {
   @override
   Future<List<NsgDataItem>> doRequestItems() async {
     return await super.doRequestItems();
+  }
+
+  @override
+  Future<bool> itemPagePost(
+      {bool goBack = true, bool useValidation = true}) async {
+    await Get.find<EventImageController>().saveImages();
+    var b =
+        await super.itemPagePost(goBack: goBack, useValidation: useValidation);
+    return b;
   }
 }
 

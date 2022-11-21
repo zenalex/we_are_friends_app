@@ -1,65 +1,88 @@
-import 'package:nsg_controls/file_picker/nsg_file_picker_object.dart';
-import 'package:nsg_data/nsg_data.dart';
-import '../../model/photo_item.dart';
+import 'dart:io';
 
-class EventImageController extends NsgDataController<PhotoItem> {
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_data/nsg_data.dart';
+import 'package:we_are_friends_app/model/data_controller_model.dart';
+import 'package:we_are_friends_app/pages/events/events_controller.dart';
+
+class EventImageController extends NsgDataTableController<EventPhotoTable> {
   EventImageController()
-      : super(requestOnInit: false, autoRepeate: true, autoRepeateCount: 3);
+      : super(
+            masterController: Get.find<EventsController>(),
+            tableFieldName: EventGenerated.namePhotoTable,
+            controllerMode: const NsgDataControllerMode(
+                storageType: NsgDataStorageType.local));
 
   var images = <NsgFilePickerObject>[];
 
   @override
   NsgDataRequestParams get getRequestFilter {
-    var cmp = NsgCompare();
-    // var dataController = Get.find<DataController>();
+    var filter = super.getRequestFilter;
+    var cmp = filter.compare;
+    var ids = <String>[];
+    for (var e in items) {
+      ids.add(e.photoItemId);
+    }
+    cmp.add(
+        name: PhotoItemGenerated.nameId,
+        value: ids,
+        comparisonOperator: NsgComparisonOperator.inList);
     return NsgDataRequestParams(compare: cmp);
   }
-/*
+
   Future saveImages() async {
-    var progress = NsgProgressDialog(textDialog: 'Сохранение фото');
-    progress.show();
-    try {
-      for (var img in images) {
-        if (img.image == null) continue;
-        if (img.id == '') {
-          var pic = Picture();
-          pic.name = img.description;
-          var dataController = Get.find<DataController>();
-          if (dataController.currentPage == NsgPage.naOtgruzku) {
-            pic.ownerId = Get.find<ZayavkaNaOtgruzkuController>().currentItem.id;
-          } else if (dataController.currentPage == NsgPage.naPriemku) {
-            pic.ownerId = Get.find<ZayavkaNaPriemkuController>().currentItem.id;
-          } else {
-            throw Exception('ОШИБКА IC-47');
-          }
-          if (kIsWeb) {
-            File imagefile = File.fromUri(Uri(path: img.filePath));
-            pic.image = await imagefile.readAsBytes();
-          } else {
-            File imagefile = File(img.filePath);
-            pic.image = await imagefile.readAsBytes();
-          }
-          await pic.post();
+    // var progress = NsgProgressDialog(textDialog: 'Сохранение фото');
+    // progress.show();
+    //try {
+    for (var img in images) {
+      if (img.image == null) continue;
+      if (img.id == '') {
+        var pic = PhotoItem();
+        pic.storageType = NsgDataStorageType.local;
+        pic.name = img.description;
+        var eventController = Get.find<EventsController>();
+        pic.ownerId = eventController.currentItem.id;
+        if (kIsWeb) {
+          File imagefile = File.fromUri(Uri(path: img.filePath));
+          pic.photo = await imagefile.readAsBytes();
+        } else {
+          File imagefile = File(img.filePath);
+          pic.photo = await imagefile.readAsBytes();
         }
+        await pic.post();
+        var row = EventPhotoTable();
+        row.photoItemId = pic.id;
+        eventController.currentItem.photoTable.addRow(row);
       }
-      progress.hide();
-      Get.back();
-    } catch (ex) {
-      progress.hide();
-      Get.showSnackbar(GetSnackBar(
-        title: 'ОШИБКА',
-        message: ex.toString(),
-      ));
     }
+    //progress.hide();
+    //Get.back();
+    // } catch (ex) {
+    //   progress.hide();
+    //   Get.showSnackbar(GetSnackBar(
+    //     title: 'ОШИБКА',
+    //     message: ex.toString(),
+    //   ));
+    // }
   }
 
   @override
   Future refreshData({List<NsgUpdateKey>? keys}) async {
     await super.refreshData(keys: keys);
     images.clear();
-    for (var element in items) {
-      images.add(NsgFilePickerObject(image: Image.memory(Uint8List.fromList(element.image)), description: element.name, fileType: 'jpg', id: element.id));
+    for (var e in items) {
+      if (e.photoItemId.isEmpty) {
+        continue;
+      }
+      images.add(NsgFilePickerObject(
+          image: Image.memory(Uint8List.fromList(e.photoItem.photo)),
+          description: e.name,
+          fileType: 'jpg',
+          id: e.id));
     }
     return;
-  }*/
+  }
 }

@@ -8,3 +8,5 @@ export 'event_group.dart';
 export 'generated/event_group.g.dart';
 export 'photo_item.dart';
 export 'generated/photo_item.g.dart';
+export 'event_photo_table.dart';
+export 'generated/event_photo_table.g.dart';
