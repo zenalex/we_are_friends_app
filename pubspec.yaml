@@ -43,18 +43,35 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
-  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.11.0
+
+flutter_icons:
+ # image_path_android: "assets/app_icon.png"
+ # image_path_ios: "assets/app_icon.png"
+ # android: false # can specify file name here e.g. "ic_launcher"
+ # ios: true
+ # remove_alpha_ios: true
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path_android: C:\Users\Acer\Private\Work\NSG_software\NSG_we_are_friends_app\Identity\Launch_icon\Launch_icon_android_png\NSG_we_are_friends_app_512х512_icon.png
+  image_path_ios: C:\Users\Acer\Private\Work\NSG_software\NSG_we_are_friends_app\Identity\Launch_icon\Launch_icon_ios_png\NSG_we_are_friends_app_1024х1024_icon.png
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  #web:
+    #generate: true
+    #image_path: "path/to/image.png"
+    #background_color: "#ffffff"
+    #theme_color: "#ffffff"
+  #windows:
+    #generate: true
+    #image_path: "path/to/image.png"
+    #icon_size: 48 # min:48, max:256, default: 48
+  #macos:
+    #generate: true
+    #image_path: "path/to/image.png"
 
 flutter:
   uses-material-design: true
   assets:
     - lib/assets/
     - lib/assets/images/
-
-flutter_icons:
-  ios: true
-  android: true
-  image_path_ios: "lib/assets/launcher/NSG_we_are_friends_app_1024х1024_icon.png"
-  image_path_android: "lib/assets/launcher/NSG_we_are_friends_app_1024х1024_icon.png"
-  adaptive_icon_background: "lib/assets/launcher/NSG_we_are_friends_app_1024х1024_background_icon.png"
-  adaptive_icon_foreground: "lib/assets/launcher/NSG_we_are_friends_app_1024х1024_foreground_icon.png"
