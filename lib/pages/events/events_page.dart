@@ -116,7 +116,7 @@ class EventsPage extends GetView<EventsController> {
   }
 
   Widget _tabs() {
-    return Container(
+    return SizedBox(
       //width: 300,
       height: 500,
       child: DefaultTabController(
