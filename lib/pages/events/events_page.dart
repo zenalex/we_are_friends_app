@@ -24,98 +24,100 @@ class EventsPage extends GetView<EventsController> {
             //key: GlobalKey(),
             decoration: const BoxDecoration(color: Colors.white),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                NsgAppBar(
-                  text: controller.currentItem.isEmpty
-                      ? _textTitleNew
-                      : _textTitle,
-                  icon: Icons.arrow_back_ios_new,
-                  colorsInverted: true,
-                  bottomCircular: true,
-                  onPressed: () {
-                    controller.itemPageCancel();
-                  },
-                  icon2: Icons.check,
-                  onPressed2: () {
-                    controller.itemPagePost();
-                  },
-                ),
-                Flexible(
-                  child: SingleChildScrollView(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          NsgDatePicker(
-                              initialTime: controller.currentItem.date,
-                              onClose: (d) {
-                                controller.currentItem.date = d;
-                              }),
-                          NsgInput(
-                            dataItem: controller.currentItem,
-                            fieldName: EventGenerated.nameName,
-                            label: 'Название мероприятия',
-                          ),
-                          NsgInput(
-                            dataItem: controller.currentItem,
-                            fieldName: EventGenerated.nameEventGroupId,
-                            selectionController:
-                                Get.find<EventGroupController>(),
-                            selectionForm: Routes.eventGroupList,
-                            label: 'Группа мероприятий',
-                          ),
-                          NsgInput(
-                            dataItem: controller.currentItem,
-                            fieldName: EventGenerated.nameComment,
-                            label: 'Описание',
-                            minLines: 3,
-                            maxLines: 6,
-                          ),
-                          NsgInput(
-                            dataItem: controller.currentItem,
-                            fieldName: EventGenerated.nameIsFinished,
-                            label: 'Мероприятие завершено ',
-                          ),
-                          NsgInput(
-                            dataItem: controller.currentItem,
-                            fieldName: EventGenerated.nameSumNeeded,
-                            label: 'Необходимая сумма',
-                          ),
-                          NsgInput(
-                            dataItem: controller.currentItem,
-                            fieldName: EventGenerated.nameSumRaised,
-                            label: 'Собранная сумма',
-                          ),
-                          imageGallery(),
-                          NsgTable(
-                            controller: Get.find<EventsFriendTableController>(),
-                            elementEditPageName: Routes.eventsPageRow,
-                            columns: [
-                              NsgTableColumn(
-                                  name: EventFriendTableGenerated.nameFriendId,
-                                  width: 100,
-                                  presentation: 'Друг'),
-                              NsgTableColumn(
-                                  name: EventFriendTableGenerated.nameSumNeeded,
-                                  width: 100,
-                                  presentation: 'Требуется'),
-                              NsgTableColumn(
-                                  name:
-                                      EventFriendTableGenerated.nameSumAcquired,
-                                  width: 100,
-                                  presentation: 'Сдано')
-                            ],
-                          )
-                        ],
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  NsgAppBar(
+                    text: controller.currentItem.isEmpty
+                        ? _textTitleNew
+                        : _textTitle,
+                    icon: Icons.arrow_back_ios_new,
+                    colorsInverted: true,
+                    bottomCircular: true,
+                    onPressed: () {
+                      controller.itemPageCancel();
+                    },
+                    icon2: Icons.check,
+                    onPressed2: () {
+                      controller.itemPagePost();
+                    },
+                  ),
+                  Flexible(
+                    child: SingleChildScrollView(
+                      child: Container(
+                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            NsgDatePicker(
+                                initialTime: controller.currentItem.date,
+                                onClose: (d) {
+                                  controller.currentItem.date = d;
+                                }),
+                            NsgInput(
+                              dataItem: controller.currentItem,
+                              fieldName: EventGenerated.nameName,
+                              label: 'Название мероприятия',
+                            ),
+                            NsgInput(
+                              dataItem: controller.currentItem,
+                              fieldName: EventGenerated.nameEventGroupId,
+                              selectionController:
+                                  Get.find<EventGroupController>(),
+                              selectionForm: Routes.eventGroupList,
+                              label: 'Группа мероприятий',
+                            ),
+                            NsgInput(
+                              dataItem: controller.currentItem,
+                              fieldName: EventGenerated.nameComment,
+                              label: 'Описание',
+                              minLines: 3,
+                              maxLines: 6,
+                            ),
+                            NsgInput(
+                              dataItem: controller.currentItem,
+                              fieldName: EventGenerated.nameIsFinished,
+                              label: 'Мероприятие завершено ',
+                            ),
+                            NsgInput(
+                              dataItem: controller.currentItem,
+                              fieldName: EventGenerated.nameSumNeeded,
+                              label: 'Необходимая сумма',
+                            ),
+                            NsgInput(
+                              dataItem: controller.currentItem,
+                              fieldName: EventGenerated.nameSumRaised,
+                              label: 'Собранная сумма',
+                            ),
+                            imageGallery(),
+                            NsgTable(
+                              controller:
+                                  Get.find<EventsFriendTableController>(),
+                              elementEditPageName: Routes.eventsPageRow,
+                              columns: [
+                                NsgTableColumn(
+                                    name:
+                                        EventFriendTableGenerated.nameFriendId,
+                                    width: 100,
+                                    presentation: 'Друг'),
+                                NsgTableColumn(
+                                    name:
+                                        EventFriendTableGenerated.nameSumNeeded,
+                                    width: 100,
+                                    presentation: 'Требуется'),
+                                NsgTableColumn(
+                                    name: EventFriendTableGenerated
+                                        .nameSumAcquired,
+                                    width: 100,
+                                    presentation: 'Сдано')
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                ]),
           ),
         ),
       ),
