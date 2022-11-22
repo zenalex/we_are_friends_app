@@ -120,7 +120,7 @@ class EventsPage extends GetView<EventsController> {
       //width: 300,
       height: 500,
       child: DefaultTabController(
-        length: 2,
+        length: 3,
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -138,6 +138,11 @@ class EventsPage extends GetView<EventsController> {
                         labelColor: ControlOptions.instance.colorText,
                         labelPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         tabs: [
+                          Tab(
+                              child: Text(
+                            "Бюджет".toUpperCase(),
+                            textAlign: TextAlign.center,
+                          )),
                           Tab(
                               child: Text(
                             "Участники".toUpperCase(),
@@ -159,6 +164,11 @@ class EventsPage extends GetView<EventsController> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Align(
+                          alignment: Alignment.topLeft, child: _budgetTable()),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Align(
                           alignment: Alignment.topLeft, child: _friendsTable()),
                     ),
                     imageGallery()
@@ -177,6 +187,10 @@ class EventsPage extends GetView<EventsController> {
       objectsList: Get.find<EventImageController>().images,
       allowedFileFormats: const [],
     );
+  }
+
+  Widget _budgetTable() {
+    return SizedBox();
   }
 
   Widget _friendsTable() {
