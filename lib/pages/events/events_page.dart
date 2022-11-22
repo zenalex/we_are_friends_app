@@ -20,35 +20,32 @@ class EventsPage extends GetView<EventsController> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: controller.obx(
-          (state) => SingleChildScrollView(
-            child: Flexible(
-              fit: FlexFit.loose,
-              child: Container(
-                //key: GlobalKey(),
-                decoration: const BoxDecoration(color: Colors.white),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    NsgAppBar(
-                      text: controller.currentItem.isEmpty
-                          ? _textTitleNew
-                          : _textTitle,
-                      icon: Icons.arrow_back_ios_new,
-                      colorsInverted: true,
-                      bottomCircular: true,
-                      onPressed: () {
-                        controller.itemPageCancel();
-                      },
-                      icon2: Icons.check,
-                      onPressed2: () {
-                        controller.itemPagePost();
-                      },
-                    ),
-                    Flexible(
+          (state) => Container(
+            //key: GlobalKey(),
+            decoration: const BoxDecoration(color: Colors.white),
+            child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  NsgAppBar(
+                    text: controller.currentItem.isEmpty
+                        ? _textTitleNew
+                        : _textTitle,
+                    icon: Icons.arrow_back_ios_new,
+                    colorsInverted: true,
+                    bottomCircular: true,
+                    onPressed: () {
+                      controller.itemPageCancel();
+                    },
+                    icon2: Icons.check,
+                    onPressed2: () {
+                      controller.itemPagePost();
+                    },
+                  ),
+                  Flexible(
+                    child: SingleChildScrollView(
                       child: Container(
                         padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
-                        //child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -117,13 +114,10 @@ class EventsPage extends GetView<EventsController> {
                             )
                           ],
                         ),
-                        //)
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ),
+                  ),
+                ]),
           ),
         ),
       ),

@@ -12,12 +12,14 @@ class EventGenerated extends NsgDataItem {
   static const nameComment = 'comment';
   static const nameEventGroupId = 'eventGroupId';
   static const nameSumNeeded = 'sumNeeded';
+  static const nameSumActual = 'sumActual';
   static const nameSumRaised = 'sumRaised';
   static const nameUserId = 'userId';
   static const nameFriendTable = 'friendTable';
   static const namePhotoTable = 'photoTable';
   static const nameIsFinished = 'isFinished';
   static const nameFinishDate = 'finishDate';
+  static const nameBudgetTable = 'budgetTable';
 
   static final Map<String, String> fieldNameDict = {
    nameEventGroupId: 'Группа мероприятий',
@@ -31,15 +33,17 @@ class EventGenerated extends NsgDataItem {
     addField(NsgDataStringField(nameId), primaryKey: true);
     addField(NsgDataDateField(nameDate), primaryKey: false);
     addField(NsgDataStringField(nameName), primaryKey: false);
-    addField(NsgDataStringField(nameComment), primaryKey: false);
+    addField(NsgDataStringField(nameComment, maxLength: 0), primaryKey: false);
     addField(NsgDataReferenceField<EventGroup>(nameEventGroupId), primaryKey: false);
     addField(NsgDataDoubleField(nameSumNeeded), primaryKey: false);
+    addField(NsgDataDoubleField(nameSumActual), primaryKey: false);
     addField(NsgDataDoubleField(nameSumRaised), primaryKey: false);
     addField(NsgDataStringField(nameUserId), primaryKey: false);
     addField(NsgDataReferenceListField<EventFriendTable>(nameFriendTable), primaryKey: false);
     addField(NsgDataReferenceListField<EventPhotoTable>(namePhotoTable), primaryKey: false);
     addField(NsgDataBoolField(nameIsFinished), primaryKey: false);
     addField(NsgDataDateField(nameFinishDate), primaryKey: false);
+    addField(NsgDataReferenceListField<EventBudgetTable>(nameBudgetTable), primaryKey: false);
     fieldList.fields[nameEventGroupId]?.presentation = 'Группа мероприятий';
   }
 
@@ -87,6 +91,11 @@ class EventGenerated extends NsgDataItem {
 
   set sumNeeded(double value) => setFieldValue(nameSumNeeded, value);
 
+  /// ФактическаяСумма
+  double get sumActual => getFieldValue(nameSumActual) as double;
+
+  set sumActual(double value) => setFieldValue(nameSumActual, value);
+
   /// СобраннаяСумма
   double get sumRaised => getFieldValue(nameSumRaised) as double;
 
@@ -112,6 +121,9 @@ class EventGenerated extends NsgDataItem {
   DateTime get finishDate => getFieldValue(nameFinishDate) as DateTime;
 
   set finishDate(DateTime value) => setFieldValue(nameFinishDate, value);
+
+  NsgDataTable<EventBudgetTable> get budgetTable => NsgDataTable<EventBudgetTable>(owner: this, fieldName: nameBudgetTable);
+
 
   @override
   String get apiRequestItems {

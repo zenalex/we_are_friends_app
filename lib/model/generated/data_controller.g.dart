@@ -24,7 +24,11 @@ class DataControllerGenerated extends NsgBaseController {
       NsgDataClient.client
        .registerDataItem(PhotoItem(), remoteProvider: provider);
       NsgDataClient.client
+       .registerDataItem(CostItem(), remoteProvider: provider);
+      NsgDataClient.client
        .registerDataItem(EventPhotoTable(), remoteProvider: provider);
+      NsgDataClient.client
+       .registerDataItem(EventBudgetTable(), remoteProvider: provider);
     provider!.useNsgAuthorization = true;
     var db = NsgLocalDb.instance;
     await db.init('we_are_friends');

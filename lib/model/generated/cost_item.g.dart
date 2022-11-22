@@ -3,9 +3,7 @@ import 'package:nsg_data/nsg_data.dart';
 // ignore: unused_import
 import 'dart:typed_data';
 import '../data_controller_model.dart';
-
-/// ГруппаМероприятий
-class EventGroupGenerated extends NsgDataItem {
+class CostItemGenerated extends NsgDataItem {
   static const nameId = 'id';
   static const nameName = 'name';
 
@@ -13,7 +11,7 @@ class EventGroupGenerated extends NsgDataItem {
  };
 
   @override
-  String get typeName => 'EventGroup';
+  String get typeName => 'CostItem';
 
   @override
   void initialize() {
@@ -25,7 +23,7 @@ class EventGroupGenerated extends NsgDataItem {
   String toString() => name;
 
   @override
-  NsgDataItem getNewObject() => EventGroup();
+  NsgDataItem getNewObject() => CostItem();
 
   /// Идентификатор
   @override
@@ -41,6 +39,6 @@ class EventGroupGenerated extends NsgDataItem {
 
   @override
   String get apiRequestItems {
-    return '/Api/EventGroup';
+    return '/Api/CostItem';
   }
 }
