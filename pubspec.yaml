@@ -43,8 +43,18 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
+  flutter_launcher_icons: ^0.10.0
+
 flutter:
   uses-material-design: true
   assets:
     - lib/assets/
     - lib/assets/images/
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "lib/assets/launcher/NSG_we_are_friends_app_1024х1024_icon.png"
+  image_path_android: "lib/assets/launcher/NSG_we_are_friends_app_1024х1024_icon.png"
+  adaptive_icon_background: "lib/assets/launcher/NSG_we_are_friends_app_1024х1024_background_icon.png"
+  adaptive_icon_foreground: "lib/assets/launcher/NSG_we_are_friends_app_1024х1024_foreground_icon.png"
