@@ -1,7 +1,5 @@
 {
-    "typeName": "EventGroup",
-    "databaseType": "ГруппаМероприятий",
-    "databaseTypeNamespace": "WeAreFriends.Метаданные.Справочники",
+    "typeName": "CostItem",
 
     "fields": [
         {

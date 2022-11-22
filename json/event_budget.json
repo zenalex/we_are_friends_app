@@ -1,0 +1,40 @@
+{
+    "typeName": "EventBudgetTable",
+
+    "fields": [
+        {
+            "name": "Id",
+            "databaseName": "Идентификатор",
+            "type": "String",
+            "isPrimary": "true"
+        },
+        {
+            "name": "OwnerId",
+            "databaseName": "Владелец",
+            "type": "Reference",
+            "referenceName": "Owner",
+            "referenceType": "Event"
+        },
+        {
+            "name": "CostItemId",
+            "type": "Reference",
+            "referenceName": "CostItem",
+            "referenceType": "CostItem",
+            "userVisibility": "true",
+            "userName": "Статья затрат"
+        },
+        {
+            "name": "SumNeeded",
+            "databaseName": "НеобходимаяСумма",
+            "type": "double",
+            "userVisibility": "true",
+            "userName": "Необходимая сумма"
+        },
+        {
+            "name": "SumActual",
+            "type": "double",
+            "userVisibility": "true",
+            "userName": "Фактическая сумма"
+        }
+    ]
+}

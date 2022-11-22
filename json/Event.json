@@ -23,7 +23,8 @@
         {
             "name": "Comment",
             "databaseName": "Комментарий",
-            "type": "String"
+            "type": "String",
+            "maxLength": 0
         },
         {
             "name": "EventGroupId",
@@ -38,6 +39,11 @@
         {
             "name": "SumNeeded",
             "databaseName": "НеобходимаяСумма",
+            "type": "double"
+        },
+        {
+            "name": "SumActual",
+            "databaseName": "ФактическаяСумма",
             "type": "double"
         },
         {
@@ -72,6 +78,12 @@
         {
             "name": "FinishDate",
             "type": "DateTime"
+        },
+        {
+            "name": "BudgetTable",
+            "type": "List<Reference>",
+            "referenceType": "EventBudgetTable",
+            "alwaysReturnNested": "true"
         }
     ]
 }

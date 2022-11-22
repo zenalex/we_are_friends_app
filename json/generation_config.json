@@ -56,6 +56,14 @@
             "dataTypeFile": "photo_item.json"
           },
           {
+            "name": "CostItem",
+            "apiPrefix": "CostItem",
+            "authorize": "user",
+            "getterType": "post",
+            "allowPost": "true",
+            "dataTypeFile": "cost_item.json"
+          },
+          {
             "name": "EventPhotoTable",
             "apiPrefix": "EventPhotoTable",
             "authorize": "user",
@@ -63,6 +71,15 @@
             "allowPost": "false",
             "allowDelete": "false",
             "dataTypeFile": "event_photo_table.json"
+          },
+          {
+            "name": "EventBudgetTable",
+            "apiPrefix": "EventBudgetTable",
+            "authorize": "user",
+            "allowGetter": "false",
+            "allowPost": "false",
+            "allowDelete": "false",
+            "dataTypeFile": "event_budget.json"
           }
         ]
       }
