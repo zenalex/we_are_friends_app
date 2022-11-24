@@ -6,6 +6,7 @@ import 'package:we_are_friends_app/app_pages.dart';
 
 import '../../model/data_controller_model.dart';
 import '../event_group/event_group_controller.dart';
+import '../user_settings_controller.dart';
 import 'events_controller.dart';
 import 'events_image_controller.dart';
 
@@ -195,7 +196,9 @@ class EventsPage extends GetView<EventsController> {
 
   Widget _friendsTable() {
     return NsgTable(
+      userSettingsId: 'friends_table',
       controller: Get.find<EventsFriendTableController>(),
+      userSettingsController: Get.find<UserSettingsController>(),
       elementEditPageName: Routes.eventsPageRow,
       columns: [
         NsgTableColumn(

@@ -4,6 +4,7 @@ import 'package:nsg_controls/nsg_controls.dart';
 
 import '../../app_pages.dart';
 import '../../model/generated/friend.g.dart';
+import '../user_settings_controller.dart';
 import 'friends_controller.dart';
 
 class FriendsListPage extends GetView<FriendsController> {
@@ -14,6 +15,8 @@ class FriendsListPage extends GetView<FriendsController> {
     return NsgListPage(
       type: NsgListPageMode.table,
       controller: controller,
+      userSettingsId: 'friends_list',
+      userSettingsController: Get.find<UserSettingsController>(),
       title: 'Список друзей',
       textNoItems: 'Добавьте друзей',
       elementEditPage: Routes.friendsPage,
@@ -31,12 +34,13 @@ class FriendsListPage extends GetView<FriendsController> {
             presentation: 'Телефон',
             width: 150),
       ],
-      availableButtons: NsgTableMenuButtonType.allExceptSelected(
-          [NsgTableMenuButtonType.filterPeriod,
-           NsgTableMenuButtonType.columnsSelect,
-           NsgTableMenuButtonType.columnsSize,
-           NsgTableMenuButtonType.favorites,
-           NsgTableMenuButtonType.recent]),
+      availableButtons: NsgTableMenuButtonType.allExceptSelected([
+        NsgTableMenuButtonType.filterPeriod,
+        NsgTableMenuButtonType.columnsSelect,
+        NsgTableMenuButtonType.columnsSize,
+        NsgTableMenuButtonType.favorites,
+        NsgTableMenuButtonType.recent
+      ]),
     );
   }
 }

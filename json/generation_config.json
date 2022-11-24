@@ -80,6 +80,14 @@
             "allowPost": "false",
             "allowDelete": "false",
             "dataTypeFile": "event_budget.json"
+          },
+          {
+            "name": "UserSettings",
+            "apiPrefix": "UserSettings",
+            "authorize": "user",
+            "getterType": "post",
+            "allowPost": "true",
+            "dataTypeFile": "user_settings.json"
           }
         ]
       }

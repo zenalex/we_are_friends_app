@@ -4,6 +4,7 @@ import 'package:nsg_controls/nsg_controls.dart';
 
 import '../../app_pages.dart';
 import '../../model/generated/event.g.dart';
+import '../user_settings_controller.dart';
 import 'events_controller.dart';
 
 class EventsListPage extends GetView<EventsController> {
@@ -14,6 +15,8 @@ class EventsListPage extends GetView<EventsController> {
     return NsgListPage(
       type: NsgListPageMode.table,
       controller: controller,
+      userSettingsId: 'events_table',
+      userSettingsController: Get.find<UserSettingsController>(),
       title: 'Список мероприятий',
       textNoItems: 'Добавьте мероприятие',
       elementEditPage: Routes.eventsPage,

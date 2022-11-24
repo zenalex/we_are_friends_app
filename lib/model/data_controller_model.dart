@@ -14,3 +14,5 @@ export 'event_photo_table.dart';
 export 'generated/event_photo_table.g.dart';
 export 'event_budget_table.dart';
 export 'generated/event_budget_table.g.dart';
+export 'user_settings.dart';
+export 'generated/user_settings.g.dart';

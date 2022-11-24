@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:nsg_data/nsg_data.dart';
+import 'package:we_are_friends_app/pages/user_settings_controller.dart';
 
 import '../app_pages.dart';
 import '../login/login_page.dart';
@@ -30,12 +31,13 @@ class DataController extends DataControllerGenerated {
     }
 
     await super.onInit();
-    
   }
 
   @override
   Future loadProviderData() async {
     await super.loadProviderData();
+    Get.put(UserSettingsController(), permanent: true);
+    await Get.find<UserSettingsController>().requestItems();
     _gotoMainPage();
   }
 

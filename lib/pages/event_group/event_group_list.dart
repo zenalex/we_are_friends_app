@@ -4,6 +4,7 @@ import 'package:nsg_controls/nsg_controls.dart';
 
 import '../../app_pages.dart';
 import '../../model/data_controller_model.dart';
+import '../user_settings_controller.dart';
 import 'event_group_controller.dart';
 
 class EventGroupListPage extends GetView<EventGroupController> {
@@ -14,6 +15,8 @@ class EventGroupListPage extends GetView<EventGroupController> {
     return NsgListPage(
       type: NsgListPageMode.table,
       controller: controller,
+      userSettingsId: 'event_group_list',
+      userSettingsController: Get.find<UserSettingsController>(),
       title: 'Группы мероприятий',
       textNoItems: 'Добавьте группу',
       elementEditPage: Routes.eventGroupPage,

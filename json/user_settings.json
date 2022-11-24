@@ -1,0 +1,28 @@
+{
+    "typeName": "UserSettings",
+    "fields": [
+        {
+            "name": "Id",
+            "databaseName": "Идентификатор",
+            "description": "Guid - идентификатор объета",
+            "type": "String",
+            "isPrimary": "true",
+            "userVisibility": "false"
+        },
+        {
+            "name": "Name",
+            "databaseName": "Наименование",
+            "type": "String",
+            "userVisibility": "true"
+        },
+        {
+            "name": "Settings",
+            "databaseName": "НастройкиСтрока",
+            "type": "String"
+        },
+        {
+            "name": "UserId",
+            "type": "String"
+        }
+    ]
+}
