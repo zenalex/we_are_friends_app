@@ -51,12 +51,12 @@ flutter_icons:
  # android: false # can specify file name here e.g. "ic_launcher"
  # ios: true
  # remove_alpha_ios: true
-  android: true
+  android: false
   ios: true
   remove_alpha_ios: true
   image_path_android: C:\Users\Acer\Private\Work\NSG_software\NSG_we_are_friends_app\Identity\Launch_icon\Launch_icon_android_png\NSG_we_are_friends_app_512х512_icon.png
   image_path_ios: C:\Users\Acer\Private\Work\NSG_software\NSG_we_are_friends_app\Identity\Launch_icon\Launch_icon_ios_png\NSG_we_are_friends_app_1024х1024_icon.png
-  min_sdk_android: 21 # android min sdk min:16, default 21
+  # min_sdk_android: 21 # android min sdk min:16, default 21
   #web:
     #generate: true
     #image_path: "path/to/image.png"
