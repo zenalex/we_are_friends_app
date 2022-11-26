@@ -199,6 +199,7 @@ class EventsPage extends GetView<EventsController> {
       columns: [
         NsgTableColumn(
             name: EventBudgetTableGenerated.nameCostItemId,
+            expanded: true,
             width: 100,
             presentation: 'Затрата'),
         NsgTableColumn(
@@ -222,6 +223,7 @@ class EventsPage extends GetView<EventsController> {
       columns: [
         NsgTableColumn(
             name: EventFriendTableGenerated.nameFriendId,
+            expanded: true,
             width: 100,
             presentation: 'Друг'),
         NsgTableColumn(
