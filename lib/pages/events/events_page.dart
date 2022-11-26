@@ -191,7 +191,26 @@ class EventsPage extends GetView<EventsController> {
   }
 
   Widget _budgetTable() {
-    return SizedBox();
+    return NsgTable(
+      userSettingsId: 'budget_table',
+      controller: Get.find<EventsBudgetTableController>(),
+      userSettingsController: Get.find<UserSettingsController>(),
+      elementEditPageName: Routes.eventsBudgetRow,
+      columns: [
+        NsgTableColumn(
+            name: EventBudgetTableGenerated.nameCostItemId,
+            width: 100,
+            presentation: 'Затрата'),
+        NsgTableColumn(
+            name: EventBudgetTableGenerated.nameSumNeeded,
+            width: 100,
+            presentation: 'Требуется'),
+        NsgTableColumn(
+            name: EventBudgetTableGenerated.nameSumActual,
+            width: 100,
+            presentation: 'Фактически потрачено')
+      ],
+    );
   }
 
   Widget _friendsTable() {
