@@ -1,9 +1,7 @@
 import 'package:get/get.dart';
 import 'package:nsg_data/nsg_data.dart';
+import 'package:we_are_friends_app/model/data_controller_model.dart';
 
-import '../../model/event.dart';
-import '../../model/event_friend_table.dart';
-import '../../model/generated/event.g.dart';
 import 'events_image_controller.dart';
 
 class EventsController extends NsgDataController<Event> {
@@ -40,6 +38,16 @@ class EventsFriendTableController
       : super(
             masterController: Get.find<EventsController>(),
             tableFieldName: EventGenerated.nameFriendTable,
+            controllerMode: const NsgDataControllerMode(
+                storageType: NsgDataStorageType.local));
+}
+
+class EventsBudgetTableController
+    extends NsgDataTableController<EventBudgetTable> {
+  EventsBudgetTableController()
+      : super(
+            masterController: Get.find<EventsController>(),
+            tableFieldName: EventGenerated.nameBudgetTable,
             controllerMode: const NsgDataControllerMode(
                 storageType: NsgDataStorageType.local));
 }
