@@ -46,29 +46,22 @@ dev_dependencies:
   flutter_launcher_icons: ^0.11.0
 
 flutter_icons:
- # image_path_android: "assets/app_icon.png"
- # image_path_ios: "assets/app_icon.png"
- # android: false # can specify file name here e.g. "ic_launcher"
- # ios: true
- # remove_alpha_ios: true
-  android: false
   ios: true
   remove_alpha_ios: true
-  image_path_android: C:\Users\Acer\Private\Work\NSG_software\NSG_we_are_friends_app\Identity\Launch_icon\Launch_icon_android_png\NSG_we_are_friends_app_512х512_icon.png
-  image_path_ios: C:\Users\Acer\Private\Work\NSG_software\NSG_we_are_friends_app\Identity\Launch_icon\Launch_icon_ios_png\NSG_we_are_friends_app_1024х1024_icon.png
-  # min_sdk_android: 21 # android min sdk min:16, default 21
-  #web:
-    #generate: true
-    #image_path: "path/to/image.png"
-    #background_color: "#ffffff"
-    #theme_color: "#ffffff"
-  #windows:
-    #generate: true
-    #image_path: "path/to/image.png"
-    #icon_size: 48 # min:48, max:256, default: 48
-  #macos:
-    #generate: true
-    #image_path: "path/to/image.png"
+  image_path_ios: C:\Users\Acer\Private\Work\NSG_software\Brand_identity\Apps_licons\Apps_licons_png\we_are_friends_app_icon_colored_1024х1024.png
+  web:
+    generate: true
+    image_path: C:\Users\Acer\Private\Work\NSG_software\Brand_identity\Apps_licons\Apps_licons_png\we_are_friends_app_icon_colored_192х192.png
+  windows:
+    generate: true
+    image_path: C:\Users\Acer\Private\Work\NSG_software\Brand_identity\Apps_licons\Apps_licons_png\we_are_friends_app_icon_colored_256х256.png
+    icon_size: 256
+  macos:
+    generate: true
+    image_path: C:\Users\Acer\Private\Work\NSG_software\Brand_identity\Apps_licons\Apps_licons_png\we_are_friends_app_icon_colored_1024х1024.png
+  
+  
+  
 
 flutter:
   uses-material-design: true
