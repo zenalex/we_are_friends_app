@@ -72,6 +72,16 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                             pc.currentFriend = controller.currentItem.friend;
                             pc.newItemPageOpen(pageName: Routes.paymentPage);
                           },
+                        ),
+                        NsgButton(
+                          text: 'Список платежей',
+                          onPressed: () {
+                            var pc = Get.find<PaymentController>();
+                            pc.currentEvent = controller.currentItem.owner;
+                            pc.currentFriend = controller.currentItem.friend;
+                            pc.refreshData();
+                            Get.toNamed(Routes.paymentList);
+                          },
                         )
                       ],
                     ),

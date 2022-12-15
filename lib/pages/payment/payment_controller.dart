@@ -37,7 +37,7 @@ class PaymentController extends NsgDataController<Payment> {
     }
     if (currentFriend != null) {
       filter.compare
-          .add(name: PaymentGenerated.nameEventId, value: currentFriend);
+          .add(name: PaymentGenerated.nameFriendId, value: currentFriend);
     }
     return filter;
   }
