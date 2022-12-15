@@ -1,0 +1,50 @@
+{
+    "typeName": "Payment",
+    "fields": [
+        {
+            "name": "Id",
+            "databaseName": "Идентификатор",
+            "type": "String",
+            "isPrimary": "true"
+        },
+        {
+            "name": "Date",
+            "databaseName": "Дата",
+            "type": "DateTime"
+        },
+        {
+            "name": "Comment",
+            "databaseName": "Комментарий",
+            "type": "String",
+            "maxLength": 0
+        },
+        {
+            "name": "FriendId",
+            "type": "Reference",
+            "referenceName": "Friend",
+            "referenceType": "Friend",
+            "userVisibility": "true",
+            "userName": "Друг"
+        },
+        {
+            "name": "EventId",
+            "type": "Reference",
+            "referenceName": "Event",
+            "referenceType": "Event",
+            "userVisibility": "true",
+            "userName": "Мероприятие"
+        },
+        {
+            "name": "Sum",
+            "databaseName": "Сумма",
+            "type": "double"
+        },
+        {
+            "name": "PhotoTable",
+            "type": "List<Reference>",
+            "referenceType": "PaymentPhotoTable",
+            "alwaysReturnNested": "true"
+        }
+      
+    ]
+}

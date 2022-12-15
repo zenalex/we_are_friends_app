@@ -2,7 +2,7 @@
     "targetFramework": "net472",
     "cSharpPath": "C:/Users/pro5/source/repos/FriendsServer",
     "cSharpNamespace": "WeAreFriendsServer",
-    "dartPath": "x:/Projects2/flutter2/we_are_friends_app/lib/model",
+    "dartPath": "/Users/alex/Develop/we_are_friends_app/lib/model",
     "applicationName": "we_are_friends",
     "controller": [
       {
@@ -88,6 +88,22 @@
             "getterType": "post",
             "allowPost": "true",
             "dataTypeFile": "user_settings.json"
+          },
+          {
+            "name": "Payment",
+            "apiPrefix": "Payment",
+            "authorize": "user",
+            "getterType": "post",
+            "allowPost": "true",
+            "dataTypeFile": "payment.json"
+          },
+          {
+            "name": "PaymentPhotoTable",
+            "apiPrefix": "PaymentPhotoTable",
+            "authorize": "user",
+            "getterType": "post",
+            "allowPost": "true",
+            "dataTypeFile": "payment_photo_table.json"
           }
         ]
       }

@@ -3,7 +3,7 @@ import 'package:nsg_data/nsg_data.dart';
 // ignore: unused_import
 import 'dart:typed_data';
 import '../data_controller_model.dart';
-class EventPhotoTableGenerated extends NsgDataItem {
+class PaymentPhotoTableGenerated extends NsgDataItem {
   static const nameId = 'id';
   static const nameOwnerId = 'ownerId';
   static const namePhotoItemId = 'photoItemId';
@@ -15,12 +15,12 @@ class EventPhotoTableGenerated extends NsgDataItem {
  };
 
   @override
-  String get typeName => 'EventPhotoTable';
+  String get typeName => 'PaymentPhotoTable';
 
   @override
   void initialize() {
     addField(NsgDataStringField(nameId), primaryKey: true);
-    addField(NsgDataReferenceField<Event>(nameOwnerId), primaryKey: false);
+    addField(NsgDataReferenceField<Payment>(nameOwnerId), primaryKey: false);
     addField(NsgDataReferenceField<PhotoItem>(namePhotoItemId), primaryKey: false);
     addField(NsgDataStringField(nameName), primaryKey: false);
     fieldList.fields[namePhotoItemId]?.presentation = '';
@@ -31,7 +31,7 @@ class EventPhotoTableGenerated extends NsgDataItem {
   String toString() => name;
 
   @override
-  NsgDataItem getNewObject() => EventPhotoTable();
+  NsgDataItem getNewObject() => PaymentPhotoTable();
 
   @override
   String get id => getFieldValue(nameId).toString();
@@ -41,14 +41,14 @@ class EventPhotoTableGenerated extends NsgDataItem {
 
   @override
   String get ownerId => getFieldValue(nameOwnerId).toString();
-  Event get owner => getReferent<Event>(nameOwnerId);
-  Future<Event> ownerAsync() async {
-   return await getReferentAsync<Event>(nameOwnerId);
+  Payment get owner => getReferent<Payment>(nameOwnerId);
+  Future<Payment> ownerAsync() async {
+   return await getReferentAsync<Payment>(nameOwnerId);
   }
 
   @override
   set ownerId(String value) => setFieldValue(nameOwnerId, value);
-  set owner(Event value) =>
+  set owner(Payment value) =>
     setFieldValue(nameOwnerId, value.id);
 
   String get photoItemId => getFieldValue(namePhotoItemId).toString();
@@ -67,6 +67,6 @@ class EventPhotoTableGenerated extends NsgDataItem {
 
   @override
   String get apiRequestItems {
-    return '/Api/EventPhotoTable';
+    return '/Api/PaymentPhotoTable';
   }
 }

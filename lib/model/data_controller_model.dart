@@ -16,3 +16,7 @@ export 'event_budget_table.dart';
 export 'generated/event_budget_table.g.dart';
 export 'user_settings.dart';
 export 'generated/user_settings.g.dart';
+export 'payment.dart';
+export 'generated/payment.g.dart';
+export 'payment_photo_table.dart';
+export 'generated/payment_photo_table.g.dart';
