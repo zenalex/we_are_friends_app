@@ -5,6 +5,7 @@ import 'package:we_are_friends_app/pages/friends/friends_controller.dart';
 
 import '../../app_pages.dart';
 import '../../model/data_controller_model.dart';
+import '../payment/payment_controller.dart';
 import 'events_controller.dart';
 
 class EventsPageRow extends GetView<EventsFriendTableController> {
@@ -63,6 +64,15 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                           fieldName: EventFriendTableGenerated.nameSumAcquired,
                           label: 'Сдано',
                         ),
+                        NsgButton(
+                          text: 'Добавить платеж',
+                          onPressed: () {
+                            var pc = Get.find<PaymentController>();
+                            pc.currentEvent = controller.currentItem.owner;
+                            pc.currentFriend = controller.currentItem.friend;
+                            pc.newItemPageOpen(pageName: Routes.paymentPage);
+                          },
+                        )
                       ],
                     ),
                     //)

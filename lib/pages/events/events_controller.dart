@@ -5,14 +5,11 @@ import 'package:we_are_friends_app/model/data_controller_model.dart';
 import 'events_image_controller.dart';
 
 class EventsController extends NsgDataController<Event> {
-  EventsController()
-      : super(
-            controllerMode: const NsgDataControllerMode(
-                storageType: NsgDataStorageType.local));
+  EventsController() : super();
 
   @override
   Future<Event> doCreateNewItem() async {
-    var el = await super.doCreateNewItem();
+    var el = await super.doCreateNewItem() as Event;
     el.date = DateTime.now().add(const Duration(days: 1));
     return el;
   }
@@ -37,17 +34,14 @@ class EventsFriendTableController
   EventsFriendTableController()
       : super(
             masterController: Get.find<EventsController>(),
-            tableFieldName: EventGenerated.nameFriendTable,
-            controllerMode: const NsgDataControllerMode(
-                storageType: NsgDataStorageType.local));
+            tableFieldName: EventGenerated.nameFriendTable);
 }
 
 class EventsBudgetTableController
     extends NsgDataTableController<EventBudgetTable> {
   EventsBudgetTableController()
       : super(
-            masterController: Get.find<EventsController>(),
-            tableFieldName: EventGenerated.nameBudgetTable,
-            controllerMode: const NsgDataControllerMode(
-                storageType: NsgDataStorageType.local));
+          masterController: Get.find<EventsController>(),
+          tableFieldName: EventGenerated.nameBudgetTable,
+        );
 }

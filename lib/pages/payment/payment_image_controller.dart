@@ -6,13 +6,14 @@ import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
-import 'package:we_are_friends_app/pages/events/events_controller.dart';
 
-class EventImageController extends NsgDataTableController<EventPhotoTable> {
-  EventImageController()
+import 'payment_controller.dart';
+
+class PaymentImageController extends NsgDataTableController<PaymentPhotoTable> {
+  PaymentImageController()
       : super(
-            masterController: Get.find<EventsController>(),
-            tableFieldName: EventGenerated.namePhotoTable);
+            masterController: Get.find<PaymentController>(),
+            tableFieldName: PaymentGenerated.namePhotoTable);
 
   var images = <NsgFilePickerObject>[];
 
@@ -32,16 +33,14 @@ class EventImageController extends NsgDataTableController<EventPhotoTable> {
   }
 
   Future saveImages() async {
-    // var progress = NsgProgressDialog(textDialog: 'Сохранение фото');
-    // progress.show();
-    //try {
+
     for (var img in images) {
       if (img.image == null) continue;
       if (img.id == '') {
         var pic = PhotoItem();
         pic.storageType = NsgDataStorageType.local;
         pic.name = img.description;
-        var eventController = Get.find<EventsController>();
+        var eventController = Get.find<PaymentController>();
         pic.ownerId = eventController.currentItem.id;
         if (kIsWeb) {
           File imagefile = File.fromUri(Uri(path: img.filePath));
@@ -51,20 +50,12 @@ class EventImageController extends NsgDataTableController<EventPhotoTable> {
           pic.photo = await imagefile.readAsBytes();
         }
         await pic.post();
-        var row = EventPhotoTable();
+        var row = PaymentPhotoTable();
         row.photoItemId = pic.id;
         eventController.currentItem.photoTable.addRow(row);
       }
     }
-    //progress.hide();
-    //Get.back();
-    // } catch (ex) {
-    //   progress.hide();
-    //   Get.showSnackbar(GetSnackBar(
-    //     title: 'ОШИБКА',
-    //     message: ex.toString(),
-    //   ));
-    // }
+
   }
 
   @override
