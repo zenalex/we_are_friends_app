@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
+import 'package:we_are_friends_app/pages/events/events_page_row.dart';
 
+import '../events/events_controller.dart';
 import 'payment_image_controller.dart';
 
 class PaymentController extends NsgDataController<Payment> {
@@ -12,6 +14,16 @@ class PaymentController extends NsgDataController<Payment> {
     await Get.find<PaymentImageController>().saveImages();
     var b =
         await super.itemPagePost(goBack: goBack, useValidation: useValidation);
+    if (eventFriendTable != null &&
+        eventFriendTable!.friend == currentFriend &&
+        eventFriendTable!.owner == currentEvent) {
+      var prevSum = 0.0;
+      if (backupItem != null) {
+        prevSum = (backupItem as Payment).sum;
+      }
+      eventFriendTable!.sumAcquired += currentItem.sum - prevSum;
+      Get.find<EventsFriendTableController>().sendNotify();
+    }
     return b;
   }
 
@@ -28,7 +40,7 @@ class PaymentController extends NsgDataController<Payment> {
     return el;
   }
 
-  @override 
+  @override
   NsgDataRequestParams get getRequestFilter {
     var filter = super.getRequestFilter;
     if (currentEvent != null) {
@@ -47,4 +59,7 @@ class PaymentController extends NsgDataController<Payment> {
 
   /// Текущий друг по которому просматриваем список платежей или создаем новый
   Friend? currentFriend;
+
+  ///Строка в таблице друзей
+  EventFriendTable? eventFriendTable;
 }

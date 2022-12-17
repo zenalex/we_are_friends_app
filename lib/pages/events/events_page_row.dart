@@ -70,6 +70,7 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                             var pc = Get.find<PaymentController>();
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentFriend = controller.currentItem.friend;
+                            pc.eventFriendTable = controller.currentItem;
                             pc.newItemPageOpen(pageName: Routes.paymentPage);
                           },
                         ),
