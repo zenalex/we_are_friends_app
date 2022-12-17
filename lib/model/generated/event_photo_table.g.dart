@@ -10,8 +10,8 @@ class EventPhotoTableGenerated extends NsgDataItem {
   static const nameName = 'name';
 
   static final Map<String, String> fieldNameDict = {
-   namePhotoItemId: '',
-   nameName: '',
+   namePhotoItemId: 'Photo item id',
+   nameName: 'Name',
  };
 
   @override
@@ -23,8 +23,8 @@ class EventPhotoTableGenerated extends NsgDataItem {
     addField(NsgDataReferenceField<Event>(nameOwnerId), primaryKey: false);
     addField(NsgDataReferenceField<PhotoItem>(namePhotoItemId), primaryKey: false);
     addField(NsgDataStringField(nameName), primaryKey: false);
-    fieldList.fields[namePhotoItemId]?.presentation = '';
-    fieldList.fields[nameName]?.presentation = '';
+    fieldList.fields[namePhotoItemId]?.presentation = 'Photo item id';
+    fieldList.fields[nameName]?.presentation = 'Name';
   }
 
   @override

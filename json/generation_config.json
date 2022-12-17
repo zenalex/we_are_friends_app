@@ -2,7 +2,7 @@
     "targetFramework": "net472",
     "cSharpPath": "C:/Users/pro5/source/repos/FriendsServer",
     "cSharpNamespace": "WeAreFriendsServer",
-    "dartPath": "/Users/alex/Develop/we_are_friends_app/lib/model",
+    "dartPath": "x:/Projects2/flutter2/we_are_friends_app/lib/model",
     "applicationName": "we_are_friends",
     "controller": [
       {
@@ -12,7 +12,7 @@
         "implAuthControllerName": "AuthStrategy",
         "useAuthorization": "true",
         "dataType": "NsgDataItem",
-        "serverUri": "http://alex.nsgsoft.ru:5078",
+        "serverUri": "",
         "method": [
           {
             "name": "Friend",

@@ -3,14 +3,14 @@ import 'package:nsg_data/nsg_data.dart';
 // ignore: unused_import
 import 'dart:typed_data';
 import '../data_controller_model.dart';
-class UserSettingsGenerated extends NsgDataItem {
+class UserSettingsGenerated extends NsgDataItem with NsgUserSettings {
   static const nameId = 'id';
   static const nameName = 'name';
   static const nameSettings = 'settings';
   static const nameUserId = 'userId';
 
   static final Map<String, String> fieldNameDict = {
-   nameName: '',
+   nameName: 'Наименование',
  };
 
   @override
@@ -22,7 +22,7 @@ class UserSettingsGenerated extends NsgDataItem {
     addField(NsgDataStringField(nameName), primaryKey: false);
     addField(NsgDataStringField(nameSettings), primaryKey: false);
     addField(NsgDataStringField(nameUserId), primaryKey: false);
-    fieldList.fields[nameName]?.presentation = '';
+    fieldList.fields[nameName]?.presentation = 'Наименование';
   }
 
   @override
@@ -39,15 +39,19 @@ class UserSettingsGenerated extends NsgDataItem {
   set id(String value) => setFieldValue(nameId, value);
 
   /// Наименование
+  @override
   String get name => getFieldValue(nameName).toString();
 
   set name(String value) => setFieldValue(nameName, value);
 
   /// НастройкиСтрока
+  @override
   String get settings => getFieldValue(nameSettings).toString();
 
+  @override
   set settings(String value) => setFieldValue(nameSettings, value);
 
+  @override
   String get userId => getFieldValue(nameUserId).toString();
 
   set userId(String value) => setFieldValue(nameUserId, value);

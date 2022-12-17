@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:nsg_data/nsg_data.dart';
+// ignore: depend_on_referenced_packages
 import 'package:package_info_plus/package_info_plus.dart';
 import '../_nsg_server_options.dart';
 import '../data_controller_model.dart';
@@ -35,6 +36,8 @@ class DataControllerGenerated extends NsgBaseController {
         .registerDataItem(PaymentPhotoTable(), remoteProvider: provider);
     await NsgLocalDb.instance.init(provider!.applicationName);
     provider!.useNsgAuthorization = true;
+    var db = NsgLocalDb.instance;
+    await db.init('we_are_friends_test');
     await provider!.connect(this);
 
     super.onInit();
@@ -42,11 +45,6 @@ class DataControllerGenerated extends NsgBaseController {
 
   @override
   Future loadProviderData() async {
-    currentStatus = RxStatus.success();
-    sendNotify();
-  }
-
-  Future loadData() async {
     currentStatus = RxStatus.success();
     sendNotify();
   }
