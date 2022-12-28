@@ -37,7 +37,7 @@ class DataControllerGenerated extends NsgBaseController {
     await NsgLocalDb.instance.init(provider!.applicationName);
     provider!.useNsgAuthorization = true;
     var db = NsgLocalDb.instance;
-    await db.init('we_are_friends_test');
+    await db.init('we_are_friends');
     await provider!.connect(this);
 
     super.onInit();
