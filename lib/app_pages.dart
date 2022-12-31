@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:we_are_friends_app/pages/cost/cost_list.dart';
 import 'package:we_are_friends_app/pages/event_group/event_group_page.dart';
+import 'package:we_are_friends_app/pages/events/events_cost_list.dart';
+import 'package:we_are_friends_app/pages/events/events_cost_page.dart';
 import 'package:we_are_friends_app/pages/events/events_list.dart';
 import 'package:we_are_friends_app/pages/friends/friends_binding.dart';
 import 'package:we_are_friends_app/pages/payment/payment_page.dart';
@@ -10,6 +12,7 @@ import 'pages/cost/cost_page.dart';
 import 'pages/event_group/event_group_binding.dart';
 import 'pages/event_group/event_group_list.dart';
 import 'pages/events/events_binding.dart';
+import 'pages/events/events_budget_payment.dart';
 import 'pages/events/events_budget_row.dart';
 import 'pages/events/events_page.dart';
 import 'pages/events/events_page_row.dart';
@@ -95,6 +98,21 @@ class AppPages {
       page: () => PaymentPage(),
       binding: PaymentBinding(),
     ),
+    GetPage(
+      name: Routes.eventsBudgetPayment,
+      page: () => EventsBudgetPayment(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsCostListPage,
+      page: () => const EventsCostListPage(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsCostPage,
+      page: () => EventsCostPage(),
+      binding: EventsBinding(),
+    ),
   ];
 }
 
@@ -113,4 +131,7 @@ abstract class Routes {
   static const costPage = '/cost_page';
   static const paymentPage = '/payment_page';
   static const paymentList = '/payment_list';
+  static const eventsBudgetPayment = '/events_budget_payment';
+  static const eventsCostListPage = '/events_cost_list';
+  static const eventsCostPage = '/events_cost_page';
 }

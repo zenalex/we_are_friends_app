@@ -10,28 +10,29 @@ class DataControllerGenerated extends NsgBaseController {
   @override
   Future onInit() async {
     final info = await PackageInfo.fromPlatform();
-    provider ??= NsgDataProvider(
-        applicationName: 'we_are_friends',
-        applicationVersion: info.version,
-        firebaseToken: '');
+    provider ??= NsgDataProvider(applicationName: 'we_are_friends', applicationVersion: info.version, firebaseToken: '');
     provider!.serverUri = NsgServerOptions.serverUriDataController;
 
-    NsgDataClient.client.registerDataItem(Friend(), remoteProvider: provider);
-    NsgDataClient.client.registerDataItem(Event(), remoteProvider: provider);
+    NsgDataClient.client
+        .registerDataItem(Friend(), remoteProvider: provider);
+    NsgDataClient.client
+        .registerDataItem(Event(), remoteProvider: provider);
     NsgDataClient.client
         .registerDataItem(EventFriendTable(), remoteProvider: provider);
     NsgDataClient.client
         .registerDataItem(EventGroup(), remoteProvider: provider);
     NsgDataClient.client
         .registerDataItem(PhotoItem(), remoteProvider: provider);
-    NsgDataClient.client.registerDataItem(CostItem(), remoteProvider: provider);
+    NsgDataClient.client
+        .registerDataItem(CostItem(), remoteProvider: provider);
     NsgDataClient.client
         .registerDataItem(EventPhotoTable(), remoteProvider: provider);
     NsgDataClient.client
         .registerDataItem(EventBudgetTable(), remoteProvider: provider);
     NsgDataClient.client
         .registerDataItem(UserSettings(), remoteProvider: provider);
-    NsgDataClient.client.registerDataItem(Payment(), remoteProvider: provider);
+    NsgDataClient.client
+        .registerDataItem(Payment(), remoteProvider: provider);
     NsgDataClient.client
         .registerDataItem(PaymentPhotoTable(), remoteProvider: provider);
     await NsgLocalDb.instance.init(provider!.applicationName);

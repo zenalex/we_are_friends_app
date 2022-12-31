@@ -2,7 +2,7 @@
     "targetFramework": "net472",
     "cSharpPath": "C:/Users/pro5/source/repos/FriendsServer",
     "cSharpNamespace": "WeAreFriendsServer",
-    "dartPath": "x:/Projects2/flutter2/we_are_friends_app/lib/model",
+    "dartPath": "D:/workspace/Alexey/we_are_friends_app/lib/model",
     "applicationName": "we_are_friends",
     "controller": [
       {

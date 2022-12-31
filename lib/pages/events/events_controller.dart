@@ -8,15 +8,14 @@ class EventsController extends NsgDataController<Event> {
   EventsController() : super();
 
   @override
-  Future<Event> doCreateNewItem() async {
-    var el = await super.doCreateNewItem() as Event;
-    el.date = DateTime.now().add(const Duration(days: 1));
-    return el;
-  }
-
-  @override
   Future<List<NsgDataItem>> doRequestItems() async {
     return await super.doRequestItems();
+  }
+
+  Future<Event> doCreateNewItem() async {
+    var el = await super.doCreateNewItem() as Event;
+    el.date = DateTime.now();
+    return el;
   }
 
   @override
@@ -25,8 +24,41 @@ class EventsController extends NsgDataController<Event> {
     await Get.find<EventImageController>().saveImages();
     var b =
         await super.itemPagePost(goBack: goBack, useValidation: useValidation);
+    if (eventBudgetTable != null &&
+        eventBudgetTable!.costItem == currentCostItem &&
+        eventBudgetTable!.owner == currentEvent) {
+      var prevSum = 0.0;
+      if (backupItem != null) {
+        prevSum = (backupItem as Payment).sum;
+      }
+      eventBudgetTable!.sumNeeded += eventBudgetTable!.sumNeeded - prevSum;
+      Get.find<EventsBudgetTableController>().sendNotify();
+    }
     return b;
   }
+
+  @override
+  NsgDataRequestParams get getRequestFilter {
+    var filter = super.getRequestFilter;
+    if (currentEvent != null) {
+      filter.compare
+          .add(name: PaymentGenerated.nameEventId, value: currentEvent);
+    }
+    if (currentCostItem != null) {
+      filter.compare.add(
+          name: EventBudgetTableGenerated.nameCostItemId,
+          value: currentCostItem);
+    }
+    return filter;
+  }
+
+  EventBudgetTable? eventBudgetTable;
+
+  Event? currentEvent;
+
+  CostItem? currentCostItem;
+
+  EventFriendTable? currentFriend;
 }
 
 class EventsFriendTableController
@@ -44,4 +76,22 @@ class EventsBudgetTableController
           masterController: Get.find<EventsController>(),
           tableFieldName: EventGenerated.nameBudgetTable,
         );
+
+  @override
+  Future<EventBudgetTable> doCreateNewItem() async {
+    var el = await super.doCreateNewItem() as EventBudgetTable;
+    if (currentEvent != null) {
+      el.owner = currentEvent!;
+    }
+    if (currentCostItem != null) {
+      el.costItem = currentCostItem!;
+    }
+    return el;
+  }
+
+  EventBudgetTable? eventBudgetTable;
+
+  Event? currentEvent;
+
+  CostItem? currentCostItem;
 }

@@ -6,6 +6,7 @@ import '../data_controller_model.dart';
 class EventBudgetTableGenerated extends NsgDataItem {
   static const nameId = 'id';
   static const nameOwnerId = 'ownerId';
+  static const nameComment = 'comment';
   static const nameCostItemId = 'costItemId';
   static const nameSumNeeded = 'sumNeeded';
   static const nameSumActual = 'sumActual';
@@ -23,6 +24,7 @@ class EventBudgetTableGenerated extends NsgDataItem {
   void initialize() {
     addField(NsgDataStringField(nameId), primaryKey: true);
     addField(NsgDataReferenceField<Event>(nameOwnerId), primaryKey: false);
+    addField(NsgDataStringField(nameComment, maxLength: 0), primaryKey: false);
     addField(NsgDataReferenceField<CostItem>(nameCostItemId), primaryKey: false);
     addField(NsgDataDoubleField(nameSumNeeded), primaryKey: false);
     addField(NsgDataDoubleField(nameSumActual), primaryKey: false);
@@ -53,6 +55,11 @@ class EventBudgetTableGenerated extends NsgDataItem {
   set ownerId(String value) => setFieldValue(nameOwnerId, value);
   set owner(Event value) =>
     setFieldValue(nameOwnerId, value.id);
+
+  /// Комментарий
+  String get comment => getFieldValue(nameComment).toString();
+
+  set comment(String value) => setFieldValue(nameComment, value);
 
   String get costItemId => getFieldValue(nameCostItemId).toString();
   CostItem get costItem => getReferent<CostItem>(nameCostItemId);

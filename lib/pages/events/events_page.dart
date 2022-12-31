@@ -4,6 +4,7 @@ import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_text.dart';
 import 'package:we_are_friends_app/app_pages.dart';
 
+import '../../model/generated/event_budget_table.g.dart';
 import '../../model/data_controller_model.dart';
 import '../event_group/event_group_controller.dart';
 import '../user_settings_controller.dart';
@@ -84,7 +85,7 @@ class EventsPage extends GetView<EventsController> {
                             ),
                             Row(
                               children: [
-                                const NsgText('Необходимая сумма'),
+                                const NsgText('Необходимая сумма '),
                                 NsgText(controller.currentItem.sumNeeded
                                     .toStringAsFixed(2))
                               ],
@@ -103,6 +104,40 @@ class EventsPage extends GetView<EventsController> {
                                     .toStringAsFixed(2))
                               ],
                             ),
+                            NsgButton(
+                                text: 'Обновить',
+                                onPressed: () {
+                                  controller.currentItem.sumNeeded = 0;
+                                  controller.currentItem.sumActual = 0;
+                                  controller.currentItem.sumRaised = 0;
+                                  for (var row
+                                      in Get.find<EventsBudgetTableController>()
+                                          .items) {
+                                    controller.currentItem.sumNeeded +=
+                                        row.sumNeeded;
+                                    controller.currentItem.sumActual +=
+                                        row.sumActual;
+                                  }
+
+                                  int i = 0;
+
+                                  for (var row
+                                      in Get.find<EventsFriendTableController>()
+                                          .items) {
+                                    controller.currentItem.sumRaised +=
+                                        row.sumAcquired;
+                                    i++;
+                                  }
+
+                                  for (var row
+                                      in Get.find<EventsFriendTableController>()
+                                          .items) {
+                                    row.sumNeeded =
+                                        controller.currentItem.sumNeeded / i;
+                                  }
+
+                                  controller.sendNotify();
+                                }),
                             _tabs(),
                           ],
                         ),

@@ -16,6 +16,12 @@
             "referenceType": "Event"
         },
         {
+            "name": "Comment",
+            "databaseName": "Комментарий",
+            "type": "String",
+            "maxLength": 0
+        },
+        {
             "name": "CostItemId",
             "type": "Reference",
             "referenceName": "CostItem",

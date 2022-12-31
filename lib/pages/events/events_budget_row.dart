@@ -63,6 +63,39 @@ class EventsBudgetRowPage extends GetView<EventsBudgetTableController> {
                           fieldName: EventBudgetTableGenerated.nameSumActual,
                           label: 'Фактически потраченная сумма',
                         ),
+                        NsgButton(
+                          text: 'Добавить платеж',
+                          onPressed: () {
+                            var pc = Get.find<EventsController>();
+                            pc.currentEvent = controller.currentItem.owner;
+                            pc.currentCostItem =
+                                controller.currentItem.costItem;
+                            pc.eventBudgetTable = controller.currentItem;
+                            pc.newItemPageOpen(pageName: Routes.eventsCostPage);
+                          },
+                        ),
+                        NsgButton(
+                            text: 'Список платежей',
+                            onPressed: () {
+                              var pc = Get.find<EventsController>();
+                              pc.currentEvent = controller.currentItem.owner;
+                              pc.currentCostItem =
+                                  controller.currentItem.costItem;
+                              pc.refreshData();
+                              Get.toNamed(Routes.eventsCostListPage);
+                            }),
+                        NsgButton(
+                          text: 'Фактические затраты',
+                          onPressed: () {
+                            var pc = Get.find<EventsController>();
+                            pc.currentEvent = controller.currentItem.owner;
+                            pc.currentCostItem =
+                                controller.currentItem.costItem;
+                            pc.eventBudgetTable = controller.currentItem;
+                            pc.newItemPageOpen(
+                                pageName: Routes.eventsBudgetPayment);
+                          },
+                        )
                       ],
                     ),
                     //)
