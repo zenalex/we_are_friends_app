@@ -42,6 +42,7 @@ class UserSettingsGenerated extends NsgDataItem with NsgUserSettings {
   @override
   String get name => getFieldValue(nameName).toString();
 
+  @override
   set name(String value) => setFieldValue(nameName, value);
 
   /// НастройкиСтрока

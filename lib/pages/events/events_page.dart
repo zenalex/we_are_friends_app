@@ -4,7 +4,6 @@ import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_text.dart';
 import 'package:we_are_friends_app/app_pages.dart';
 
-import '../../model/generated/event_budget_table.g.dart';
 import '../../model/data_controller_model.dart';
 import '../event_group/event_group_controller.dart';
 import '../user_settings_controller.dart';

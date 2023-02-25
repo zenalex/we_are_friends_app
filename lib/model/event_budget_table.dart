@@ -1,5 +1,4 @@
 import 'package:nsg_data/nsg_data.dart';
-import 'package:we_are_friends_app/model/event.dart';
 
 import 'generated/event_budget_table.g.dart';
 

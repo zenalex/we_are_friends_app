@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_text.dart';
-import 'package:we_are_friends_app/pages/cost/cost_controller.dart';
 import 'package:we_are_friends_app/pages/events/events_controller.dart';
 
-import '../../app_pages.dart';
 import '../../model/data_controller_model.dart';
-import '../user_settings_controller.dart';
-import 'events_controller.dart';
 import 'events_image_controller.dart';
 
 class EventsBudgetPayment extends GetView<EventsBudgetTableController> {

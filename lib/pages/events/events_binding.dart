@@ -7,6 +7,7 @@ import '../cost/cost_controller.dart';
 import '../event_group/event_group_controller.dart';
 import 'events_controller.dart';
 
+// ignore: deprecated_member_use
 class EventsBinding extends Bindings {
   @override
   void dependencies() {

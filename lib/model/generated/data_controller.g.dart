@@ -46,7 +46,7 @@ class DataControllerGenerated extends NsgBaseController {
 
   @override
   Future loadProviderData() async {
-    currentStatus = RxStatus.success();
+    currentStatus = GetStatus.success(NsgBaseControllerData());
     sendNotify();
   }
 }
