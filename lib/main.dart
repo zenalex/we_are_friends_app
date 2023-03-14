@@ -25,27 +25,27 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
-          bodyText1: TextStyle(
+          bodyLarge: TextStyle(
             fontSize: 14.0,
             color: ControlOptions.instance.colorText,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
             height: 1.20,
           ),
-          bodyText2: TextStyle(
+          bodyMedium: TextStyle(
             fontSize: 14.0,
             color: ControlOptions.instance.colorText,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
             height: 1.20,
           ),
-          headline1: TextStyle(
+          displayLarge: TextStyle(
             fontSize: 20.0,
             color: ControlOptions.instance.colorText,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w600,
           ),
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             fontSize: 18.0,
             color: ControlOptions.instance.colorText,
             fontFamily: 'Roboto',
@@ -53,19 +53,19 @@ class MyApp extends StatelessWidget {
             height: 1.40,
             letterSpacing: 1.0,
           ),
-          headline3: TextStyle(
+          displaySmall: TextStyle(
             fontSize: 18.0,
             color: ControlOptions.instance.colorText,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.normal,
           ),
-          headline4: TextStyle(
+          headlineMedium: TextStyle(
             fontSize: 14.0,
             color: ControlOptions.instance.colorText,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.normal,
           ),
-          button: const TextStyle(
+          labelLarge: const TextStyle(
             fontSize: 14.0,
             color: Color.fromRGBO(0, 0, 0, 1),
             fontFamily: 'Roboto',
@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
             height: 1.40,
             letterSpacing: 1.0,
           ),
-          caption: const TextStyle(
+          bodySmall: const TextStyle(
             fontSize: 14.0,
             color: Color.fromRGBO(33, 32, 30, 1),
             fontFamily: 'Roboto',

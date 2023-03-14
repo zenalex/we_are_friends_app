@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
-import 'package:we_are_friends_app/pages/events/events_page_row.dart';
 
 import '../events/events_controller.dart';
 import 'payment_image_controller.dart';

@@ -9,8 +9,6 @@ class LoginParams extends NsgPhoneLoginParams {
             //headerMessage: 'ТИТАН 112',
             headerMessageVisible: false,
             headerMessageVerification: 'Введите проверочный код',
-            descriptionMessegeVerification:
-                'Мы отправили вам код в СМС\nна телефонный номер\n{{phone}}',
             textEnterPhone: 'Введите номер телефона',
             textResendSms: 'Назад',
             textSendSms: 'Отправить код',

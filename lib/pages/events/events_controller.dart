@@ -12,6 +12,7 @@ class EventsController extends NsgDataController<Event> {
     return await super.doRequestItems();
   }
 
+  @override
   Future<Event> doCreateNewItem() async {
     var el = await super.doCreateNewItem() as Event;
     el.date = DateTime.now();
@@ -79,7 +80,7 @@ class EventsBudgetTableController
 
   @override
   Future<EventBudgetTable> doCreateNewItem() async {
-    var el = await super.doCreateNewItem() as EventBudgetTable;
+    var el = await super.doCreateNewItem();
     if (currentEvent != null) {
       el.owner = currentEvent!;
     }

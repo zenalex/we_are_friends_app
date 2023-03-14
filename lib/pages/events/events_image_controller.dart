@@ -78,8 +78,9 @@ class EventImageController extends NsgDataTableController<EventPhotoTable> {
       images.add(NsgFilePickerObject(
           image: Image.memory(Uint8List.fromList(e.photoItem.photo)),
           description: e.name,
-          fileType: 'jpg',
-          id: e.id));
+          fileType: NsgFilePickerObjectType.image,
+          id: e.id,
+          isNew: false));
     }
     return;
   }
