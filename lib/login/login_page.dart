@@ -10,7 +10,7 @@ class LoginPage extends NsgPhoneLoginPage {
       : super(provider, widgetParams: LoginPage.getWidgetParams());
 
   @override
-  Widget getLogo() {
+  Widget getLogo(BuildContext context) {
     const List<String> images = <String>[
       'lib/assets/images/sv1.svg',
       'lib/assets/images/sv2.svg',
@@ -46,7 +46,7 @@ class LoginPage extends NsgPhoneLoginPage {
   }
 
   @override
-  Image getBackground() {
+  Image getBackground(BuildContext context) {
     var background = const Image(
       image: AssetImage('lib/assets/titan-back.png'),
     );
@@ -54,10 +54,10 @@ class LoginPage extends NsgPhoneLoginPage {
   }
 
   @override
-  Widget getButtons() {
+  Widget getButtons(BuildContext context) {
     return NsgButton(
       onPressed: () {
-        sendData();
+        sendData(context);
       },
       text: 'Получить СМС'.toUpperCase(),
     );

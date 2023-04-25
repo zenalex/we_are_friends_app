@@ -3,12 +3,13 @@ import 'package:we_are_friends_app/pages/events/events_image_controller.dart';
 import 'package:we_are_friends_app/pages/friends/friends_controller.dart';
 import 'package:we_are_friends_app/pages/payment/payment_controller.dart';
 
+import '../../router/nsg_binding.dart';
 import '../cost/cost_controller.dart';
 import '../event_group/event_group_controller.dart';
 import 'events_controller.dart';
 
 // ignore: deprecated_member_use
-class EventsBinding extends Bindings {
+class EventsBinding extends NsgBinding {
   @override
   void dependencies() {
     Get.put(EventsController());

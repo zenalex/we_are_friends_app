@@ -71,7 +71,9 @@ class EventsBudgetRowPage extends GetView<EventsBudgetTableController> {
                             pc.currentCostItem =
                                 controller.currentItem.costItem;
                             pc.eventBudgetTable = controller.currentItem;
-                            pc.newItemPageOpen(pageName: Routes.eventsCostPage);
+                            pc.newItemPageOpen(
+                                context: context,
+                                pageName: Routes.eventsCostPage);
                           },
                         ),
                         NsgButton(
@@ -93,6 +95,7 @@ class EventsBudgetRowPage extends GetView<EventsBudgetTableController> {
                                 controller.currentItem.costItem;
                             pc.eventBudgetTable = controller.currentItem;
                             pc.newItemPageOpen(
+                                context: context,
                                 pageName: Routes.eventsBudgetPayment);
                           },
                         )

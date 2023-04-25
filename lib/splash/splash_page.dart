@@ -204,6 +204,7 @@ class _SplashPageState extends State<SplashPage>
   @override
   Widget build(BuildContext context) {
     var controller = Get.find<DataController>();
+    controller.splashContext = context;
     double size;
     double getHeight = Get.height;
     double getWidth = Get.width;
