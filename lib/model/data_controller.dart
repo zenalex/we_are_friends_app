@@ -33,7 +33,6 @@ class DataController extends DataControllerGenerated {
     }
 
     await super.onInit();
-    NsgNavigator.mainController = this;
   }
 
   @override
