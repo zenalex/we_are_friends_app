@@ -1,6 +1,6 @@
 import 'package:get/instance_manager.dart';
+import 'package:nsg_data/nsg_data.dart';
 
-import '../../router/nsg_binding.dart';
 import 'cost_controller.dart';
 
 // ignore: deprecated_member_use

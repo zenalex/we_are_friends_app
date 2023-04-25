@@ -1,3 +1,0 @@
-class NsgBinding {
-  void dependencies() {}
-}

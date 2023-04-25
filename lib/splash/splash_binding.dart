@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:we_are_friends_app/router/nsg_binding.dart';
+import 'package:nsg_data/nsg_data.dart';
 
 import '../model/data_controller.dart';
 

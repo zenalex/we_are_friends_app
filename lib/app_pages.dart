@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/pages/cost/cost_list.dart';
 import 'package:we_are_friends_app/pages/event_group/event_group_page.dart';
 import 'package:we_are_friends_app/pages/events/events_cost_list.dart';
@@ -5,7 +8,6 @@ import 'package:we_are_friends_app/pages/events/events_cost_page.dart';
 import 'package:we_are_friends_app/pages/events/events_list.dart';
 import 'package:we_are_friends_app/pages/friends/friends_binding.dart';
 import 'package:we_are_friends_app/pages/payment/payment_page.dart';
-import 'package:we_are_friends_app/router/nsg_route.dart';
 
 import 'pages/cost/cost_binding.dart';
 import 'pages/cost/cost_page.dart';
@@ -20,12 +22,12 @@ import 'pages/friends/friends_list.dart';
 import 'pages/friends/friends_page.dart';
 import 'pages/payment/payment_binding.dart';
 import 'pages/payment/payment_list.dart';
-import 'router/nsg_router.dart';
 import 'splash/splash_binding.dart';
 import 'splash/splash_page.dart';
 import 'start_page.dart';
 
 class AppPages {
+  static bool isInitialized = false;
   static final router = NsgRouter(
     initialLocation: Routes.splashPage,
     routes: [
@@ -114,6 +116,15 @@ class AppPages {
         binding: EventsBinding(),
       ),
     ],
+    redirect: (BuildContext context, GoRouterState state) {
+      if (state.location == Routes.splashPage) {
+        isInitialized = true;
+      } else if (state.location != Routes.splashPage && !isInitialized) {
+        return Routes.splashPage;
+      } else {
+        return null;
+      }
+    },
   );
 }
 
