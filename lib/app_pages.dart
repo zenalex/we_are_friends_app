@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nsg_data/nsg_data.dart';
+import 'package:we_are_friends_app/model/data_controller.dart';
 import 'package:we_are_friends_app/pages/cost/cost_list.dart';
 import 'package:we_are_friends_app/pages/event_group/event_group_page.dart';
 import 'package:we_are_friends_app/pages/events/events_cost_list.dart';
@@ -120,10 +121,10 @@ class AppPages {
       if (state.location == Routes.splashPage) {
         isInitialized = true;
       } else if (state.location != Routes.splashPage && !isInitialized) {
+        DataController.pageToGo = state.location;
         return Routes.splashPage;
-      } else {
-        return null;
       }
+      return null;
     },
   );
 }

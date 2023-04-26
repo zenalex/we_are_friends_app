@@ -52,6 +52,7 @@ class DataController extends DataControllerGenerated {
   }
 
   bool gotoDone = false;
+  static String pageToGo = Routes.eventsList;
 
   void _gotoMainPage() {
     if (_animationFinished &&
@@ -59,7 +60,7 @@ class DataController extends DataControllerGenerated {
         !gotoDone &&
         splashContext != null) {
       gotoDone = true;
-      GoRouter.of(splashContext!).go(Routes.eventsList);
+      GoRouter.of(splashContext!).go(pageToGo);
       //Get.offAndToNamed(Routes.eventsList);
     }
   }
