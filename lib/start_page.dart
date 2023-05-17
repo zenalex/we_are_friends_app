@@ -13,11 +13,11 @@ class StartPage extends StatelessWidget {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.transparent,
-        body: Padding(
-          padding: const EdgeInsets.all(5.0),
+        body: const Padding(
+          padding: EdgeInsets.all(5.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const <Widget>[Text('Start page')],
+            children: <Widget>[Text('Start page')],
           ),
         ),
       ),

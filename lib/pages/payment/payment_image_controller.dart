@@ -33,7 +33,6 @@ class PaymentImageController extends NsgDataTableController<PaymentPhotoTable> {
   }
 
   Future saveImages() async {
-
     for (var img in images) {
       if (img.image == null) continue;
       if (img.id == '') {
@@ -55,7 +54,6 @@ class PaymentImageController extends NsgDataTableController<PaymentPhotoTable> {
         eventController.currentItem.photoTable.addRow(row);
       }
     }
-
   }
 
   @override
@@ -69,8 +67,9 @@ class PaymentImageController extends NsgDataTableController<PaymentPhotoTable> {
       images.add(NsgFilePickerObject(
           image: Image.memory(Uint8List.fromList(e.photoItem.photo)),
           description: e.name,
-          fileType: 'jpg',
-          id: e.id));
+          fileType: NsgFilePickerObjectType.image,
+          id: e.id,
+          isNew: false));
     }
     return;
   }
