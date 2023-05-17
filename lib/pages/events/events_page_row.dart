@@ -34,11 +34,11 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                   colorsInverted: true,
                   bottomCircular: true,
                   onPressed: () {
-                    controller.itemPageCancel();
+                    controller.itemPageCancel(context);
                   },
                   icon2: Icons.check,
                   onPressed2: () {
-                    controller.itemPagePost();
+                    controller.itemPagePost(context);
                   },
                 ),
                 Expanded(
@@ -71,7 +71,8 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentFriend = controller.currentItem.friend;
                             pc.eventFriendTable = controller.currentItem;
-                            pc.newItemPageOpen(pageName: Routes.paymentPage);
+                            pc.newItemPageOpen(
+                                context: context, pageName: Routes.paymentPage);
                           },
                         ),
                         NsgButton(

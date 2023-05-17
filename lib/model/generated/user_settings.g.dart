@@ -3,6 +3,7 @@ import 'package:nsg_data/nsg_data.dart';
 // ignore: unused_import
 import 'dart:typed_data';
 import '../data_controller_model.dart';
+
 class UserSettingsGenerated extends NsgDataItem with NsgUserSettings {
   static const nameId = 'id';
   static const nameName = 'name';
@@ -10,8 +11,8 @@ class UserSettingsGenerated extends NsgDataItem with NsgUserSettings {
   static const nameUserId = 'userId';
 
   static final Map<String, String> fieldNameDict = {
-   nameName: 'Наименование',
- };
+    nameName: 'Наименование',
+  };
 
   @override
   String get typeName => 'UserSettings';

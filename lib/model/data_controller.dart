@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/pages/user_settings_controller.dart';
 
@@ -42,16 +44,24 @@ class DataController extends DataControllerGenerated {
   }
 
   bool _animationFinished = false;
+  BuildContext? splashContext;
+
   void splashAnimationFinished() {
     _animationFinished = true;
     _gotoMainPage();
   }
 
   bool gotoDone = false;
+  static String pageToGo = Routes.eventsList;
+
   void _gotoMainPage() {
-    if (_animationFinished && status.isSuccess && !gotoDone) {
+    if (_animationFinished &&
+        status.isSuccess &&
+        !gotoDone &&
+        splashContext != null) {
       gotoDone = true;
-      Get.offAndToNamed(Routes.eventsList);
+      GoRouter.of(splashContext!).go(pageToGo);
+      //Get.offAndToNamed(Routes.eventsList);
     }
   }
 }

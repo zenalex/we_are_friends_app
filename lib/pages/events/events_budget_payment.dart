@@ -33,11 +33,11 @@ class EventsBudgetPayment extends GetView<EventsBudgetTableController> {
                   colorsInverted: true,
                   bottomCircular: true,
                   onPressed: () {
-                    controller.itemPageCancel();
+                    controller.itemPageCancel(context);
                   },
                   icon2: Icons.check,
                   onPressed2: () {
-                    controller.itemPagePost();
+                    controller.itemPagePost(context);
                   },
                 ),
                 Expanded(

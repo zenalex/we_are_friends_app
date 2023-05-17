@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
@@ -20,11 +21,13 @@ class EventsController extends NsgDataController<Event> {
   }
 
   @override
-  Future<bool> itemPagePost(
+  Future<bool> itemPagePost(BuildContext context,
       {bool goBack = true, bool useValidation = true}) async {
     await Get.find<EventImageController>().saveImages();
     var b =
-        await super.itemPagePost(goBack: goBack, useValidation: useValidation);
+        // ignore: use_build_context_synchronously
+        await super.itemPagePost(context,
+            goBack: goBack, useValidation: useValidation);
     if (eventBudgetTable != null &&
         eventBudgetTable!.costItem == currentCostItem &&
         eventBudgetTable!.owner == currentEvent) {

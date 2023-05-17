@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:nsg_controls/nsg_controls.dart';
@@ -17,10 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     NsgDataControllerMode.defaultDataControllerMode =
         const NsgDataControllerMode(storageType: NsgDataStorageType.local);
-    return GetMaterialApp(
-      textDirection: TextDirection.ltr,
-      defaultTransition: Transition.rightToLeftWithFade,
-      title: 'Титан Контроль',
+    return MaterialApp.router(
+      //TODO: default transition
+      //defaultTransition: Transition.rightToLeftWithFade,
+      title: 'Мы - друзья',
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -83,8 +82,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
+      routerConfig: AppPages.router,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

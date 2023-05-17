@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
@@ -8,11 +9,13 @@ import 'payment_image_controller.dart';
 class PaymentController extends NsgDataController<Payment> {
   PaymentController() : super();
   @override
-  Future<bool> itemPagePost(
+  Future<bool> itemPagePost(BuildContext context,
       {bool goBack = true, bool useValidation = true}) async {
     await Get.find<PaymentImageController>().saveImages();
     var b =
-        await super.itemPagePost(goBack: goBack, useValidation: useValidation);
+        // ignore: use_build_context_synchronously
+        await super.itemPagePost(context,
+            goBack: goBack, useValidation: useValidation);
     if (eventFriendTable != null &&
         eventFriendTable!.friend == currentFriend &&
         eventFriendTable!.owner == currentEvent) {
