@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:nsg_data/controllers/nsg_controller_status.dart';
 import 'package:nsg_data/nsg_data.dart';
 // ignore: depend_on_referenced_packages
 import 'package:package_info_plus/package_info_plus.dart';
@@ -45,7 +46,7 @@ class DataControllerGenerated extends NsgBaseController {
 
   @override
   Future loadProviderData() async {
-    currentStatus = GetStatus.success(NsgBaseController.emptyData);
+    currentStatus = NsgControillerStatus.success;
     sendNotify();
   }
 }

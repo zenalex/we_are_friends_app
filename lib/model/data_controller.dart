@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nsg_data/controllers/nsg_controller_status.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/pages/user_settings_controller.dart';
 
@@ -56,7 +57,7 @@ class DataController extends DataControllerGenerated {
 
   void _gotoMainPage() {
     if (_animationFinished &&
-        status.isSuccess &&
+        (currentStatus == NsgControillerStatus.success) &&
         !gotoDone &&
         splashContext != null) {
       gotoDone = true;

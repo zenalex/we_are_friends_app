@@ -132,7 +132,7 @@ class AppPages {
 abstract class Routes {
   static const splashPage = '/';
   static const mainPage = '/main';
-  static const friendsList = '/friends_list';
+  static const friendsList = '/friends_list?{id}';
   static const friendsPage = '/friends_page';
   static const eventsList = '/events_list';
   static const eventsPage = '/events_page';

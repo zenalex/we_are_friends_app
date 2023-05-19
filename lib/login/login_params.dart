@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nsg_data/nsg_data.dart';
+import 'package:nsg_login/nsgPhoneLoginParams.dart';
 
 class LoginParams extends NsgPhoneLoginParams {
   LoginParams()

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_button.dart';
 import 'package:nsg_data/nsg_data.dart';
+import 'package:nsg_login/nsgPhoneLoginVerificationPage.dart';
 
 import 'login_page.dart';
 
