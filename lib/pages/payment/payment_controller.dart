@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
 
@@ -11,7 +11,7 @@ class PaymentController extends NsgDataController<Payment> {
   @override
   Future<bool> itemPagePost(BuildContext context,
       {bool goBack = true, bool useValidation = true}) async {
-    await Get.find<PaymentImageController>().saveImages();
+    await GetIt.instance<PaymentImageController>().saveImages();
     var b =
         // ignore: use_build_context_synchronously
         await super.itemPagePost(context,
@@ -24,7 +24,7 @@ class PaymentController extends NsgDataController<Payment> {
         prevSum = (backupItem as Payment).sum;
       }
       eventFriendTable!.sumAcquired += currentItem.sum - prevSum;
-      Get.find<EventsFriendTableController>().sendNotify();
+      GetIt.instance<EventsFriendTableController>().sendNotify();
     }
     return b;
   }

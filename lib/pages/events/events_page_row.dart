@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_controls/nsg_view.dart';
+import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/pages/friends/friends_controller.dart';
 
 import '../../app_pages.dart';
@@ -8,7 +10,7 @@ import '../../model/data_controller_model.dart';
 import '../payment/payment_controller.dart';
 import 'events_controller.dart';
 
-class EventsPageRow extends GetView<EventsFriendTableController> {
+class EventsPageRow extends NsgView<EventsFriendTableController> {
   EventsPageRow({Key? key}) : super(key: key);
 
   final _textTitle = 'Редактирование строки'.toUpperCase();
@@ -50,7 +52,8 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                         NsgInput(
                           dataItem: controller.currentItem,
                           fieldName: EventFriendTableGenerated.nameFriendId,
-                          selectionController: Get.find<FriendsController>(),
+                          selectionController:
+                              GetIt.instance<FriendsController>(),
                           selectionForm: Routes.friendsList,
                           label: 'Друг',
                         ),
@@ -67,7 +70,7 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                         NsgButton(
                           text: 'Добавить платеж',
                           onPressed: () {
-                            var pc = Get.find<PaymentController>();
+                            var pc = GetIt.instance<PaymentController>();
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentFriend = controller.currentItem.friend;
                             pc.eventFriendTable = controller.currentItem;
@@ -78,11 +81,12 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                         NsgButton(
                           text: 'Список платежей',
                           onPressed: () {
-                            var pc = Get.find<PaymentController>();
+                            var pc = GetIt.instance<PaymentController>();
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentFriend = controller.currentItem.friend;
                             pc.refreshData();
-                            Get.toNamed(Routes.paymentList);
+                            NsgNavigator.instance
+                                .toPage(context, Routes.paymentList);
                           },
                         )
                       ],

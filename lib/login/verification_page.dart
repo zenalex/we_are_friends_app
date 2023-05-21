@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_button.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:nsg_login/nsgPhoneLoginVerificationPage.dart';
+import 'package:nsg_login/nsg_login_provider.dart';
 
 import 'login_page.dart';
 
 class VerificationPage extends NsgPhoneLoginVerificationPage {
-  VerificationPage(NsgDataProvider provider, {super.key})
+  VerificationPage(NsgLoginProvider provider, {super.key})
       : super(provider, widgetParams: LoginPage.getWidgetParams());
 
   @override
-  Widget getLogo() {
+  Widget getLogo(BuildContext context) {
     const List<String> images = <String>[
       'lib/assets/images/sv1.svg',
       'lib/assets/images/sv2.svg',
@@ -48,7 +48,7 @@ class VerificationPage extends NsgPhoneLoginVerificationPage {
   }
 
   @override
-  Image getBackground() {
+  Image getBackground(BuildContext context) {
     var background = const Image(
       image: AssetImage('lib/assets/titan-back.png'),
     );
@@ -56,10 +56,10 @@ class VerificationPage extends NsgPhoneLoginVerificationPage {
   }
 
   @override
-  Widget getButtons() {
+  Widget getButtons(BuildContext context) {
     return NsgButton(
         onPressed: () {
-          Get.back();
+          NsgNavigator.instance.back(context);
         },
         text: 'Повторить'.toUpperCase());
   }

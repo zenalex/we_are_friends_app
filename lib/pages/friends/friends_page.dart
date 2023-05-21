@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_controls/nsg_view.dart';
 import 'package:we_are_friends_app/model/generated/friend.g.dart';
 
 import 'friends_controller.dart';
 
-class FriendPage extends GetView<FriendsController> {
+class FriendPage extends NsgView<FriendsController> {
   FriendPage({Key? key}) : super(key: key);
 
   final _textTitle = 'Редактирование'.toUpperCase();

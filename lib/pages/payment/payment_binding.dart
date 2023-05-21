@@ -1,4 +1,4 @@
-import 'package:get/instance_manager.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_data/nsg_data.dart';
 
 import 'payment_controller.dart';
@@ -8,7 +8,9 @@ import 'payment_image_controller.dart';
 class PaymentBinding extends NsgBinding {
   @override
   void dependencies() {
-    Get.put(PaymentController());
-    Get.put(PaymentImageController());
+    GetIt.instance
+        .registerLazySingleton<PaymentController>(() => PaymentController());
+    GetIt.instance.registerLazySingleton<PaymentImageController>(
+        () => PaymentImageController());
   }
 }

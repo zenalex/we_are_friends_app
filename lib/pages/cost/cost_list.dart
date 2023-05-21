@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_controls/nsg_view.dart';
 
 import '../../app_pages.dart';
 import '../../model/data_controller_model.dart';
 import '../user_settings_controller.dart';
 import 'cost_controller.dart';
 
-class CostListPage extends GetView<CostController> {
-  const CostListPage({Key? key}) : super(key: key);
+class CostListPage extends NsgView<CostController> {
+  CostListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CostListPage extends GetView<CostController> {
       type: NsgListPageMode.table,
       controller: controller,
       userSettingsId: 'costs_list',
-      userSettingsController: Get.find<UserSettingsController>(),
+      userSettingsController: GetIt.instance<UserSettingsController>(),
       title: 'Справочник затрат',
       textNoItems: 'Добавьте затрату',
       elementEditPage: Routes.costPage,

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_controls/nsg_view.dart';
 
 import '../../app_pages.dart';
 import '../../model/data_controller_model.dart';
 import '../user_settings_controller.dart';
 import 'payment_controller.dart';
 
-class PaymentListPage extends GetView<PaymentController> {
-  const PaymentListPage({Key? key}) : super(key: key);
+class PaymentListPage extends NsgView<PaymentController> {
+  PaymentListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class PaymentListPage extends GetView<PaymentController> {
       type: NsgListPageMode.table,
       controller: controller,
       userSettingsId: 'payyment_list',
-      userSettingsController: Get.find<UserSettingsController>(),
+      userSettingsController: GetIt.instance<UserSettingsController>(),
       title: 'Оплата',
       textNoItems: 'Новая оплата',
       elementEditPage: Routes.paymentPage,

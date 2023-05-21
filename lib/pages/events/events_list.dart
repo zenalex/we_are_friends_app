@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_controls/nsg_view.dart';
 
 import '../../app_pages.dart';
 import '../../model/generated/event.g.dart';
 import '../user_settings_controller.dart';
 import 'events_controller.dart';
 
-class EventsListPage extends GetView<EventsController> {
-  const EventsListPage({Key? key}) : super(key: key);
+class EventsListPage extends NsgView<EventsController> {
+  EventsListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class EventsListPage extends GetView<EventsController> {
       type: NsgListPageMode.table,
       controller: controller,
       userSettingsId: 'events_table',
-      userSettingsController: Get.find<UserSettingsController>(),
+      userSettingsController: GetIt.instance<UserSettingsController>(),
       title: 'Список мероприятий',
       textNoItems: 'Добавьте мероприятие',
       elementEditPage: Routes.eventsPage,

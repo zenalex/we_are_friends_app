@@ -1,4 +1,4 @@
-import 'package:get/instance_manager.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_data/nsg_data.dart';
 
 import 'event_group_controller.dart';
@@ -7,6 +7,7 @@ import 'event_group_controller.dart';
 class EventGroupBinding extends NsgBinding {
   @override
   void dependencies() {
-    Get.put(EventGroupController());
+    GetIt.instance.registerLazySingleton<EventGroupController>(
+        () => EventGroupController());
   }
 }

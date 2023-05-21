@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_controls/nsg_view.dart';
 
 import '../../model/data_controller_model.dart';
 import 'cost_controller.dart';
 
-class CostPage extends GetView<CostController> {
+class CostPage extends NsgView<CostController> {
   CostPage({Key? key}) : super(key: key);
 
   final _textTitle = 'Редактирование'.toUpperCase();

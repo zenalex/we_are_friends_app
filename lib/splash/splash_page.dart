@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 
 import '../model/data_controller.dart';
@@ -189,7 +189,7 @@ class _SplashPageState extends State<SplashPage>
     _controller.forward();
     _controller.addListener(() {
       if (_controller.status == AnimationStatus.completed) {
-        var controller = Get.find<DataController>();
+        var controller = GetIt.instance<DataController>();
         controller.splashAnimationFinished();
       }
     });
@@ -203,11 +203,11 @@ class _SplashPageState extends State<SplashPage>
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.find<DataController>();
+    var controller = GetIt.instance<DataController>();
     controller.splashContext = context;
     double size;
-    double getHeight = Get.height;
-    double getWidth = Get.width;
+    double getHeight = MediaQuery.of(context).size.height;
+    double getWidth = MediaQuery.of(context).size.width;
     if (getWidth < getHeight) {
       size = getWidth - 60;
     } else {
@@ -289,7 +289,7 @@ class _SplashPageState extends State<SplashPage>
                                 scaleY: _scale2.value,
                                 child: Container(
                                     width: 230,
-                                    height: Get.height,
+                                    height: MediaQuery.of(context).size.height,
                                     decoration: decorGreenGradient)),
                             Transform.scale(
                               scale: _opacity5.value,
@@ -307,7 +307,7 @@ class _SplashPageState extends State<SplashPage>
                                 child: Transform.translate(
                                     offset: Offset(
                                         (230 - size) / 2,
-                                        Get.height / 2 -
+                                        MediaQuery.of(context).size.height / 2 -
                                             110 -
                                             _fadein4.value * 20),
                                     child: Container(
@@ -321,7 +321,7 @@ class _SplashPageState extends State<SplashPage>
                                 child: Transform.translate(
                                     offset: Offset(
                                         (230 / 2 + size / 3 / 2),
-                                        Get.height / 2 -
+                                        MediaQuery.of(context).size.height / 2 -
                                             100 -
                                             _fadein4.value * 20),
                                     child: Container(
@@ -335,7 +335,7 @@ class _SplashPageState extends State<SplashPage>
                                 child: Transform.translate(
                                     offset: Offset(
                                         0,
-                                        Get.height / 2 -
+                                        MediaQuery.of(context).size.height / 2 -
                                             75 -
                                             _fadein1.value * 20),
                                     child: SizedBox(
@@ -356,7 +356,7 @@ class _SplashPageState extends State<SplashPage>
                                 child: Transform.translate(
                                     offset: Offset(
                                         0,
-                                        Get.height / 2 -
+                                        MediaQuery.of(context).size.height / 2 -
                                             50 -
                                             _fadein2.value * 20),
                                     child: SizedBox(
@@ -375,7 +375,7 @@ class _SplashPageState extends State<SplashPage>
                                 child: Transform.translate(
                                     offset: Offset(
                                         0,
-                                        Get.height / 2 -
+                                        MediaQuery.of(context).size.height / 2 -
                                             25 -
                                             _fadein3.value * 20),
                                     child: SizedBox(

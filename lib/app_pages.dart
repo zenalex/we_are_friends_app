@@ -43,7 +43,7 @@ class AppPages {
       ),
       NsgRoute(
         path: Routes.friendsList,
-        page: (context, state) => const FriendsListPage(),
+        page: (context, state) => FriendsListPage(),
         binding: FriendsBinding(),
       ),
       NsgRoute(
@@ -53,7 +53,7 @@ class AppPages {
       ),
       NsgRoute(
         path: Routes.eventsList,
-        page: (context, state) => const EventsListPage(),
+        page: (context, state) => EventsListPage(),
         binding: EventsBinding(),
       ),
       NsgRoute(
@@ -68,7 +68,7 @@ class AppPages {
       ),
       NsgRoute(
         path: Routes.eventGroupList,
-        page: (context, state) => const EventGroupListPage(),
+        page: (context, state) => EventGroupListPage(),
         binding: EventGroupBinding(),
       ),
       NsgRoute(
@@ -78,7 +78,7 @@ class AppPages {
       ),
       NsgRoute(
         path: Routes.costList,
-        page: (context, state) => const CostListPage(),
+        page: (context, state) => CostListPage(),
         binding: CostBinding(),
       ),
       NsgRoute(
@@ -93,7 +93,7 @@ class AppPages {
       ),
       NsgRoute(
         path: Routes.paymentList,
-        page: (context, state) => const PaymentListPage(),
+        page: (context, state) => PaymentListPage(),
         binding: PaymentBinding(),
       ),
       NsgRoute(
@@ -108,7 +108,7 @@ class AppPages {
       ),
       NsgRoute(
         path: Routes.eventsCostListPage,
-        page: (context, state) => const EventsCostListPage(),
+        page: (context, state) => EventsCostListPage(),
         binding: EventsBinding(),
       ),
       NsgRoute(

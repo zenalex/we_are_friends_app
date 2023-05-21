@@ -1,4 +1,4 @@
-import 'package:get/instance_manager.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_data/nsg_data.dart';
 
 import 'cost_controller.dart';
@@ -7,6 +7,7 @@ import 'cost_controller.dart';
 class CostBinding extends NsgBinding {
   @override
   void dependencies() {
-    Get.put(CostController());
+    GetIt.instance
+        .registerLazySingleton<CostController>(() => CostController());
   }
 }

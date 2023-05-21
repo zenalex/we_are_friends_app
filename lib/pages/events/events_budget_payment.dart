@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_text.dart';
+import 'package:nsg_controls/nsg_view.dart';
 import 'package:we_are_friends_app/pages/events/events_controller.dart';
 
 import '../../model/data_controller_model.dart';
 import 'events_image_controller.dart';
 
-class EventsBudgetPayment extends GetView<EventsBudgetTableController> {
+class EventsBudgetPayment extends NsgView<EventsBudgetTableController> {
   EventsBudgetPayment({Key? key}) : super(key: key);
 
   final _textTitle = 'Редактирование'.toUpperCase();
@@ -90,7 +91,7 @@ class EventsBudgetPayment extends GetView<EventsBudgetTableController> {
     return NsgFilePicker(
       showAsWidget: true,
       callback: (value) {},
-      objectsList: Get.find<EventImageController>().images,
+      objectsList: GetIt.instance<EventImageController>().images,
       allowedFileFormats: const [],
     );
   }

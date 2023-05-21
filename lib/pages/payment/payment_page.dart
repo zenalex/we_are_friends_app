@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_text.dart';
+import 'package:nsg_controls/nsg_view.dart';
 
 import '../../model/data_controller_model.dart';
 import 'payment_controller.dart';
 import 'payment_image_controller.dart';
 
-class PaymentPage extends GetView<PaymentController> {
-  PaymentPage({Key? key}) : super(key: key);
+class PaymentPage extends NsgView<PaymentController> {
+  PaymentPage({super.key});
 
   final _textTitle = 'Редактирование'.toUpperCase();
   final _textTitleNew = 'Добавление'.toUpperCase();
@@ -95,7 +96,7 @@ class PaymentPage extends GetView<PaymentController> {
     return NsgFilePicker(
       showAsWidget: true,
       callback: (value) {},
-      objectsList: Get.find<PaymentImageController>().images,
+      objectsList: GetIt.instance<PaymentImageController>().images,
       allowedFileFormats: const [],
     );
   }

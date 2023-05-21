@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_controls/nsg_view.dart';
 
 import '../../app_pages.dart';
 import '../../model/generated/friend.g.dart';
 import '../user_settings_controller.dart';
 import 'friends_controller.dart';
 
-class FriendsListPage extends GetView<FriendsController> {
-  const FriendsListPage({Key? key}) : super(key: key);
+class FriendsListPage extends NsgView<FriendsController> {
+  FriendsListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class FriendsListPage extends GetView<FriendsController> {
       type: NsgListPageMode.table,
       controller: controller,
       userSettingsId: 'friends_list',
-      userSettingsController: Get.find<UserSettingsController>(),
+      userSettingsController: get<UserSettingsController>(),
       title: 'Список друзей',
       textNoItems: 'Добавьте друзей',
       elementEditPage: Routes.friendsPage,

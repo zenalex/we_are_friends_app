@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_controls/nsg_view.dart';
 
 import '../../model/data_controller_model.dart';
 import 'event_group_controller.dart';
 
-class EventGroupPage extends GetView<EventGroupController> {
+class EventGroupPage extends NsgView<EventGroupController> {
   EventGroupPage({Key? key}) : super(key: key);
 
   final _textTitle = 'Редактирование группы'.toUpperCase();

@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "ru.nsg" "\0"
+            VALUE "CompanyName", "ru.nsgsoft" "\0"
             VALUE "FileDescription", "we_are_friends_app" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "we_are_friends_app" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 ru.nsg. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 ru.nsgsoft. All rights reserved." "\0"
             VALUE "OriginalFilename", "we_are_friends_app.exe" "\0"
             VALUE "ProductName", "we_are_friends_app" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
