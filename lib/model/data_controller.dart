@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nsg_data/controllers/nsg_controller_status.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/pages/user_settings_controller.dart';
@@ -32,9 +30,8 @@ class DataController extends DataControllerGenerated {
   Future loadProviderData() async {
     await super.loadProviderData();
     //TODO: permanent
-    GetIt.instance.registerLazySingleton<UserSettingsController>(
-        () => UserSettingsController());
-    await GetIt.instance<UserSettingsController>().requestItems();
+    NsgGet.put<UserSettingsController>(() => UserSettingsController());
+    await NsgGet.find<UserSettingsController>().requestItems();
     _gotoMainPage();
   }
 
@@ -55,7 +52,7 @@ class DataController extends DataControllerGenerated {
         !gotoDone &&
         splashContext != null) {
       gotoDone = true;
-      GoRouter.of(splashContext!).go(pageToGo);
+      NsgNavigator.instance.toPage(splashContext!, pageToGo);
       //Get.offAndToNamed(Routes.eventsList);
     }
   }

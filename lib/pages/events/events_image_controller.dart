@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
@@ -11,7 +10,7 @@ import 'package:we_are_friends_app/pages/events/events_controller.dart';
 class EventImageController extends NsgDataTableController<EventPhotoTable> {
   EventImageController()
       : super(
-            masterController: GetIt.instance<EventsController>(),
+            masterController: NsgGet.find<EventsController>(),
             tableFieldName: EventGenerated.namePhotoTable);
 
   var images = <NsgFilePickerObject>[];
@@ -41,7 +40,7 @@ class EventImageController extends NsgDataTableController<EventPhotoTable> {
         var pic = PhotoItem();
         pic.storageType = NsgDataStorageType.local;
         pic.name = img.description;
-        var eventController = GetIt.instance<EventsController>();
+        var eventController = NsgGet.find<EventsController>();
         pic.ownerId = eventController.currentItem.id;
         if (kIsWeb) {
           File imagefile = File.fromUri(Uri(path: img.filePath));

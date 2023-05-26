@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_text.dart';
 import 'package:nsg_controls/nsg_view.dart';
+import 'package:nsg_data/nsg_data.dart';
 
 import '../../model/data_controller_model.dart';
 import 'payment_controller.dart';
@@ -96,7 +96,7 @@ class PaymentPage extends NsgView<PaymentController> {
     return NsgFilePicker(
       showAsWidget: true,
       callback: (value) {},
-      objectsList: GetIt.instance<PaymentImageController>().images,
+      objectsList: NsgGet.find<PaymentImageController>().images,
       allowedFileFormats: const [],
     );
   }

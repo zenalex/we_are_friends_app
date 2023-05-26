@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
 
@@ -23,7 +22,7 @@ class EventsController extends NsgDataController<Event> {
   @override
   Future<bool> itemPagePost(BuildContext context,
       {bool goBack = true, bool useValidation = true}) async {
-    await GetIt.instance<EventImageController>().saveImages();
+    await NsgGet.find<EventImageController>().saveImages();
     var b =
         // ignore: use_build_context_synchronously
         await super.itemPagePost(context,
@@ -36,7 +35,7 @@ class EventsController extends NsgDataController<Event> {
         prevSum = (backupItem as Payment).sum;
       }
       eventBudgetTable!.sumNeeded += eventBudgetTable!.sumNeeded - prevSum;
-      GetIt.instance<EventsBudgetTableController>().sendNotify();
+      NsgGet.find<EventsBudgetTableController>().sendNotify();
     }
     return b;
   }
@@ -69,7 +68,7 @@ class EventsFriendTableController
     extends NsgDataTableController<EventFriendTable> {
   EventsFriendTableController()
       : super(
-            masterController: GetIt.instance<EventsController>(),
+            masterController: NsgGet.find<EventsController>(),
             tableFieldName: EventGenerated.nameFriendTable);
 }
 
@@ -77,7 +76,7 @@ class EventsBudgetTableController
     extends NsgDataTableController<EventBudgetTable> {
   EventsBudgetTableController()
       : super(
-          masterController: GetIt.instance<EventsController>(),
+          masterController: NsgGet.find<EventsController>(),
           tableFieldName: EventGenerated.nameBudgetTable,
         );
 

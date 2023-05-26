@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_text.dart';
 import 'package:nsg_controls/nsg_view.dart';
+import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/app_pages.dart';
 
 import '../../model/data_controller_model.dart';
@@ -67,7 +67,7 @@ class EventsPage extends NsgView<EventsController> {
                               dataItem: controller.currentItem,
                               fieldName: EventGenerated.nameEventGroupId,
                               selectionController:
-                                  GetIt.instance<EventGroupController>(),
+                                  NsgGet.find<EventGroupController>(),
                               selectionForm: Routes.eventGroupList,
                               label: 'Группа мероприятий',
                             ),
@@ -110,7 +110,7 @@ class EventsPage extends NsgView<EventsController> {
                                   controller.currentItem.sumNeeded = 0;
                                   controller.currentItem.sumActual = 0;
                                   controller.currentItem.sumRaised = 0;
-                                  for (var row in GetIt.instance<
+                                  for (var row in NsgGet.find<
                                           EventsBudgetTableController>()
                                       .items) {
                                     controller.currentItem.sumNeeded +=
@@ -121,7 +121,7 @@ class EventsPage extends NsgView<EventsController> {
 
                                   int i = 0;
 
-                                  for (var row in GetIt.instance<
+                                  for (var row in NsgGet.find<
                                           EventsFriendTableController>()
                                       .items) {
                                     controller.currentItem.sumRaised +=
@@ -129,7 +129,7 @@ class EventsPage extends NsgView<EventsController> {
                                     i++;
                                   }
 
-                                  for (var row in GetIt.instance<
+                                  for (var row in NsgGet.find<
                                           EventsFriendTableController>()
                                       .items) {
                                     row.sumNeeded =
@@ -220,7 +220,7 @@ class EventsPage extends NsgView<EventsController> {
     return NsgFilePicker(
       showAsWidget: true,
       callback: (value) {},
-      objectsList: GetIt.instance<EventImageController>().images,
+      objectsList: NsgGet.find<EventImageController>().images,
       allowedFileFormats: const [],
     );
   }
@@ -228,8 +228,8 @@ class EventsPage extends NsgView<EventsController> {
   Widget _budgetTable() {
     return NsgTable(
       userSettingsId: 'budget_table',
-      controller: GetIt.instance<EventsBudgetTableController>(),
-      userSettingsController: GetIt.instance<UserSettingsController>(),
+      controller: NsgGet.find<EventsBudgetTableController>(),
+      userSettingsController: NsgGet.find<UserSettingsController>(),
       elementEditPageName: Routes.eventsBudgetRow,
       columns: [
         NsgTableColumn(
@@ -252,8 +252,8 @@ class EventsPage extends NsgView<EventsController> {
   Widget _friendsTable() {
     return NsgTable(
       userSettingsId: 'friends_table',
-      controller: GetIt.instance<EventsFriendTableController>(),
-      userSettingsController: GetIt.instance<UserSettingsController>(),
+      controller: NsgGet.find<EventsFriendTableController>(),
+      userSettingsController: NsgGet.find<UserSettingsController>(),
       elementEditPageName: Routes.eventsPageRow,
       columns: [
         NsgTableColumn(

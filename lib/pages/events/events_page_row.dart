@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_view.dart';
 import 'package:nsg_data/nsg_data.dart';
@@ -52,8 +51,7 @@ class EventsPageRow extends NsgView<EventsFriendTableController> {
                         NsgInput(
                           dataItem: controller.currentItem,
                           fieldName: EventFriendTableGenerated.nameFriendId,
-                          selectionController:
-                              GetIt.instance<FriendsController>(),
+                          selectionController: NsgGet.find<FriendsController>(),
                           selectionForm: Routes.friendsList,
                           label: 'Друг',
                         ),
@@ -70,7 +68,7 @@ class EventsPageRow extends NsgView<EventsFriendTableController> {
                         NsgButton(
                           text: 'Добавить платеж',
                           onPressed: () {
-                            var pc = GetIt.instance<PaymentController>();
+                            var pc = NsgGet.find<PaymentController>();
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentFriend = controller.currentItem.friend;
                             pc.eventFriendTable = controller.currentItem;
@@ -81,7 +79,7 @@ class EventsPageRow extends NsgView<EventsFriendTableController> {
                         NsgButton(
                           text: 'Список платежей',
                           onPressed: () {
-                            var pc = GetIt.instance<PaymentController>();
+                            var pc = NsgGet.find<PaymentController>();
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentFriend = controller.currentItem.friend;
                             pc.refreshData();

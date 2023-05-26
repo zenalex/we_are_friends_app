@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_view.dart';
 import 'package:nsg_data/nsg_data.dart';
@@ -51,7 +50,7 @@ class EventsBudgetRowPage extends NsgView<EventsBudgetTableController> {
                         NsgInput(
                           dataItem: controller.currentItem,
                           fieldName: EventBudgetTableGenerated.nameCostItemId,
-                          selectionController: GetIt.instance<CostController>(),
+                          selectionController: NsgGet.find<CostController>(),
                           selectionForm: Routes.costList,
                           label: 'Статья затрат',
                         ),
@@ -68,7 +67,7 @@ class EventsBudgetRowPage extends NsgView<EventsBudgetTableController> {
                         NsgButton(
                           text: 'Добавить платеж',
                           onPressed: () {
-                            var pc = GetIt.instance<EventsController>();
+                            var pc = NsgGet.find<EventsController>();
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentCostItem =
                                 controller.currentItem.costItem;
@@ -81,7 +80,7 @@ class EventsBudgetRowPage extends NsgView<EventsBudgetTableController> {
                         NsgButton(
                             text: 'Список платежей',
                             onPressed: () {
-                              var pc = GetIt.instance<EventsController>();
+                              var pc = NsgGet.find<EventsController>();
                               pc.currentEvent = controller.currentItem.owner;
                               pc.currentCostItem =
                                   controller.currentItem.costItem;
@@ -92,7 +91,7 @@ class EventsBudgetRowPage extends NsgView<EventsBudgetTableController> {
                         NsgButton(
                           text: 'Фактические затраты',
                           onPressed: () {
-                            var pc = GetIt.instance<EventsController>();
+                            var pc = NsgGet.find<EventsController>();
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentCostItem =
                                 controller.currentItem.costItem;

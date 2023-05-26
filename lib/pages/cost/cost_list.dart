@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_view.dart';
+import 'package:nsg_data/nsg_data.dart';
 
 import '../../app_pages.dart';
 import '../../model/data_controller_model.dart';
@@ -17,7 +17,7 @@ class CostListPage extends NsgView<CostController> {
       type: NsgListPageMode.table,
       controller: controller,
       userSettingsId: 'costs_list',
-      userSettingsController: GetIt.instance<UserSettingsController>(),
+      userSettingsController: NsgGet.find<UserSettingsController>(),
       title: 'Справочник затрат',
       textNoItems: 'Добавьте затрату',
       elementEditPage: Routes.costPage,

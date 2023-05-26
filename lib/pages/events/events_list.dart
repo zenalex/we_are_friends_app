@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
 import 'package:nsg_controls/nsg_view.dart';
+import 'package:nsg_data/nsg_data.dart';
 
 import '../../app_pages.dart';
 import '../../model/generated/event.g.dart';
@@ -17,7 +17,7 @@ class EventsListPage extends NsgView<EventsController> {
       type: NsgListPageMode.table,
       controller: controller,
       userSettingsId: 'events_table',
-      userSettingsController: GetIt.instance<UserSettingsController>(),
+      userSettingsController: NsgGet.find<UserSettingsController>(),
       title: 'Список мероприятий',
       textNoItems: 'Добавьте мероприятие',
       elementEditPage: Routes.eventsPage,

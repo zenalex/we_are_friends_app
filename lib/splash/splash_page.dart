@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nsg_controls/nsg_controls.dart';
+import 'package:nsg_data/nsg_data.dart';
 
 import '../model/data_controller.dart';
 
@@ -189,7 +189,7 @@ class _SplashPageState extends State<SplashPage>
     _controller.forward();
     _controller.addListener(() {
       if (_controller.status == AnimationStatus.completed) {
-        var controller = GetIt.instance<DataController>();
+        var controller = NsgGet.find<DataController>();
         controller.splashAnimationFinished();
       }
     });
@@ -203,7 +203,7 @@ class _SplashPageState extends State<SplashPage>
 
   @override
   Widget build(BuildContext context) {
-    var controller = GetIt.instance<DataController>();
+    var controller = NsgGet.find<DataController>();
     controller.splashContext = context;
     double size;
     double getHeight = MediaQuery.of(context).size.height;
