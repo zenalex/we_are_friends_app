@@ -6,6 +6,5 @@ class SplashBinding extends NsgBinding {
   @override
   void dependencies() {
     NsgGet.put<DataController>(() => DataController());
-    NsgGet.find<DataController>().onInit();
   }
 }
