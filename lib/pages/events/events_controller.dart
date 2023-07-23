@@ -8,7 +8,8 @@ class EventsController extends NsgDataController<Event> {
   EventsController() : super();
 
   @override
-  Future<List<NsgDataItem>> doRequestItems() async {
+  Future<List<NsgDataItem>> doRequestItems(
+      {NsgDataRequestParams? filter}) async {
     return await super.doRequestItems();
   }
 

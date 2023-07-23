@@ -56,7 +56,8 @@ class PaymentImageController extends NsgDataTableController<PaymentPhotoTable> {
   }
 
   @override
-  Future refreshData({List<NsgUpdateKey>? keys}) async {
+  Future refreshData(
+      {List<NsgUpdateKey>? keys, NsgDataRequestParams? filter}) async {
     await super.refreshData(keys: keys);
     images.clear();
     for (var e in items) {
