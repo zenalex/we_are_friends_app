@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:nsg_data/nsg_data.dart';
 
 import '../model/data_controller.dart';
 
-class SplashBinding extends NsgBinding {
+// ignore: deprecated_member_use
+class SplashBinding extends Bindings {
   @override
   void dependencies() {
     Get.put<DataController>(DataController(), permanent: true);

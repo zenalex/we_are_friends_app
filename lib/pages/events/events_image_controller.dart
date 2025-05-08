@@ -10,9 +10,10 @@ import 'package:we_are_friends_app/pages/events/events_controller.dart';
 
 class EventImageController extends NsgDataTableController<EventPhotoTable> {
   EventImageController()
-      : super(
-            masterController: Get.find<EventsController>(),
-            tableFieldName: EventGenerated.namePhotoTable);
+    : super(
+        masterController: Get.find<EventsController>(),
+        tableFieldName: EventGenerated.namePhotoTable,
+      );
 
   var images = <NsgFilePickerObject>[];
 
@@ -25,9 +26,10 @@ class EventImageController extends NsgDataTableController<EventPhotoTable> {
       ids.add(e.photoItemId);
     }
     cmp.add(
-        name: PhotoItemGenerated.nameId,
-        value: ids,
-        comparisonOperator: NsgComparisonOperator.inList);
+      name: PhotoItemGenerated.nameId,
+      value: ids,
+      comparisonOperator: NsgComparisonOperator.inList,
+    );
     return NsgDataRequestParams(compare: cmp);
   }
 
@@ -68,19 +70,25 @@ class EventImageController extends NsgDataTableController<EventPhotoTable> {
   }
 
   @override
-  Future refreshData({List<NsgUpdateKey>? keys}) async {
+  Future refreshData({
+    List<NsgUpdateKey>? keys,
+    NsgDataRequestParams? filter,
+  }) async {
     await super.refreshData(keys: keys);
     images.clear();
     for (var e in items) {
       if (e.photoItemId.isEmpty) {
         continue;
       }
-      images.add(NsgFilePickerObject(
+      images.add(
+        NsgFilePickerObject(
           image: Image.memory(Uint8List.fromList(e.photoItem.photo)),
           description: e.name,
           fileType: NsgFilePickerObjectType.image,
           id: e.id,
-          isNew: false));
+          isNew: false,
+        ),
+      );
     }
     return;
   }

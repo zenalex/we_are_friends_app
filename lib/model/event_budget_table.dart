@@ -8,12 +8,12 @@ class EventBudgetTable extends EventBudgetTableGenerated {
     return [
       EventBudgetTableGenerated.nameOwnerId,
       EventBudgetTableGenerated.nameCostItemId,
-      EventBudgetTableGenerated.nameSumNeeded
+      EventBudgetTableGenerated.nameSumNeeded,
     ].contains(fieldName);
   }
 
   @override
-  NsgValidateResult validateFieldValues() {
+  NsgValidateResult validateFieldValues({NsgBaseController? controller}) {
     var result = super.validateFieldValues();
     return result;
   }

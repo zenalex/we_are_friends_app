@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nsg_data/nsg_data.dart';
 import 'package:we_are_friends_app/model/data_controller_model.dart';
@@ -9,7 +8,9 @@ class EventsController extends NsgDataController<Event> {
   EventsController() : super();
 
   @override
-  Future<List<NsgDataItem>> doRequestItems() async {
+  Future<List<NsgDataItem>> doRequestItems({
+    NsgDataRequestParams? filter,
+  }) async {
     return await super.doRequestItems();
   }
 
@@ -21,13 +22,14 @@ class EventsController extends NsgDataController<Event> {
   }
 
   @override
-  Future<bool> itemPagePost(BuildContext context,
-      {bool goBack = true, bool useValidation = true}) async {
+  Future<bool> itemPagePost({
+    bool goBack = true,
+    bool useValidation = true,
+  }) async {
     await Get.find<EventImageController>().saveImages();
     var b =
-        // ignore: use_build_context_synchronously
-        await super.itemPagePost(context,
-            goBack: goBack, useValidation: useValidation);
+    // ignore: use_build_context_synchronously
+    await super.itemPagePost(goBack: goBack, useValidation: useValidation);
     if (eventBudgetTable != null &&
         eventBudgetTable!.costItem == currentCostItem &&
         eventBudgetTable!.owner == currentEvent) {
@@ -45,13 +47,16 @@ class EventsController extends NsgDataController<Event> {
   NsgDataRequestParams get getRequestFilter {
     var filter = super.getRequestFilter;
     if (currentEvent != null) {
-      filter.compare
-          .add(name: PaymentGenerated.nameEventId, value: currentEvent);
+      filter.compare.add(
+        name: PaymentGenerated.nameEventId,
+        value: currentEvent,
+      );
     }
     if (currentCostItem != null) {
       filter.compare.add(
-          name: EventBudgetTableGenerated.nameCostItemId,
-          value: currentCostItem);
+        name: EventBudgetTableGenerated.nameCostItemId,
+        value: currentCostItem,
+      );
     }
     return filter;
   }
@@ -68,18 +73,19 @@ class EventsController extends NsgDataController<Event> {
 class EventsFriendTableController
     extends NsgDataTableController<EventFriendTable> {
   EventsFriendTableController()
-      : super(
-            masterController: Get.find<EventsController>(),
-            tableFieldName: EventGenerated.nameFriendTable);
+    : super(
+        masterController: Get.find<EventsController>(),
+        tableFieldName: EventGenerated.nameFriendTable,
+      );
 }
 
 class EventsBudgetTableController
     extends NsgDataTableController<EventBudgetTable> {
   EventsBudgetTableController()
-      : super(
-          masterController: Get.find<EventsController>(),
-          tableFieldName: EventGenerated.nameBudgetTable,
-        );
+    : super(
+        masterController: Get.find<EventsController>(),
+        tableFieldName: EventGenerated.nameBudgetTable,
+      );
 
   @override
   Future<EventBudgetTable> doCreateNewItem() async {

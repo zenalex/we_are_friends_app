@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:nsg_data/nsg_data.dart';
-import 'package:we_are_friends_app/model/data_controller.dart';
+import 'package:get/get.dart';
 import 'package:we_are_friends_app/pages/cost/cost_list.dart';
 import 'package:we_are_friends_app/pages/event_group/event_group_page.dart';
 import 'package:we_are_friends_app/pages/events/events_cost_list.dart';
@@ -29,104 +26,94 @@ import 'start_page.dart';
 
 class AppPages {
   static bool isInitialized = false;
-  static final router = NsgRouter(
-    initialLocation: Routes.splashPage,
-    routes: [
-      NsgRoute(
-          path: Routes.splashPage,
-          page: (context, state) => const SplashPage(),
-          binding: SplashBinding()),
-      NsgRoute(
-        path: Routes.mainPage,
-        page: (context, state) => const StartPage(),
-        //binding: SplashBinding(),
-      ),
-      NsgRoute(
-        path: Routes.friendsList,
-        page: (context, state) => const FriendsListPage(),
-        binding: FriendsBinding(),
-      ),
-      NsgRoute(
-        path: Routes.friendsPage,
-        page: (context, state) => FriendPage(),
-        binding: FriendsBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventsList,
-        page: (context, state) => const EventsListPage(),
-        binding: EventsBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventsPage,
-        page: (context, state) => EventsPage(),
-        binding: EventsBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventsPageRow,
-        page: (context, state) => EventsPageRow(),
-        binding: EventsBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventGroupList,
-        page: (context, state) => const EventGroupListPage(),
-        binding: EventGroupBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventGroupPage,
-        page: (context, state) => EventGroupPage(),
-        binding: EventGroupBinding(),
-      ),
-      NsgRoute(
-        path: Routes.costList,
-        page: (context, state) => const CostListPage(),
-        binding: CostBinding(),
-      ),
-      NsgRoute(
-        path: Routes.costPage,
-        page: (context, state) => CostPage(),
-        binding: CostBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventsBudgetRow,
-        page: (context, state) => EventsBudgetRowPage(),
-        binding: EventsBinding(),
-      ),
-      NsgRoute(
-        path: Routes.paymentList,
-        page: (context, state) => const PaymentListPage(),
-        binding: PaymentBinding(),
-      ),
-      NsgRoute(
-        path: Routes.paymentPage,
-        page: (context, state) => PaymentPage(),
-        binding: PaymentBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventsBudgetPayment,
-        page: (context, state) => EventsBudgetPayment(),
-        binding: EventsBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventsCostListPage,
-        page: (context, state) => const EventsCostListPage(),
-        binding: EventsBinding(),
-      ),
-      NsgRoute(
-        path: Routes.eventsCostPage,
-        page: (context, state) => EventsCostPage(),
-        binding: EventsBinding(),
-      ),
-    ],
-    redirect: (BuildContext context, GoRouterState state) {
-      if (state.location == Routes.splashPage) {
-        isInitialized = true;
-      } else if (state.location != Routes.splashPage && !isInitialized) {
-        DataController.pageToGo = state.location;
-        return Routes.splashPage;
-      }
-      return null;
-    },
-  );
+  static var initial = Routes.mainPage;
+  static final List<GetPage> routes = [
+    GetPage(
+      name: Routes.splashPage,
+      page: () => const SplashPage(),
+      binding: SplashBinding(),
+    ),
+    GetPage(
+      name: Routes.mainPage,
+      page: () => const StartPage(),
+      //binding: SplashBinding(),
+    ),
+    GetPage(
+      name: Routes.friendsList,
+      page: () => const FriendsListPage(),
+      binding: FriendsBinding(),
+    ),
+    GetPage(
+      name: Routes.friendsPage,
+      page: () => FriendPage(),
+      binding: FriendsBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsList,
+      page: () => const EventsListPage(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsPage,
+      page: () => EventsPage(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsPageRow,
+      page: () => EventsPageRow(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.eventGroupList,
+      page: () => const EventGroupListPage(),
+      binding: EventGroupBinding(),
+    ),
+    GetPage(
+      name: Routes.eventGroupPage,
+      page: () => EventGroupPage(),
+      binding: EventGroupBinding(),
+    ),
+    GetPage(
+      name: Routes.costList,
+      page: () => const CostListPage(),
+      binding: CostBinding(),
+    ),
+    GetPage(
+      name: Routes.costPage,
+      page: () => CostPage(),
+      binding: CostBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsBudgetRow,
+      page: () => EventsBudgetRowPage(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.paymentList,
+      page: () => const PaymentListPage(),
+      binding: PaymentBinding(),
+    ),
+    GetPage(
+      name: Routes.paymentPage,
+      page: () => PaymentPage(),
+      binding: PaymentBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsBudgetPayment,
+      page: () => EventsBudgetPayment(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsCostListPage,
+      page: () => const EventsCostListPage(),
+      binding: EventsBinding(),
+    ),
+    GetPage(
+      name: Routes.eventsCostPage,
+      page: () => EventsCostPage(),
+      binding: EventsBinding(),
+    ),
+  ];
 }
 
 abstract class Routes {

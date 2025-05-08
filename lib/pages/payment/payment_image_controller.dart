@@ -11,9 +11,10 @@ import 'payment_controller.dart';
 
 class PaymentImageController extends NsgDataTableController<PaymentPhotoTable> {
   PaymentImageController()
-      : super(
-            masterController: Get.find<PaymentController>(),
-            tableFieldName: PaymentGenerated.namePhotoTable);
+    : super(
+        masterController: Get.find<PaymentController>(),
+        tableFieldName: PaymentGenerated.namePhotoTable,
+      );
 
   var images = <NsgFilePickerObject>[];
 
@@ -26,9 +27,10 @@ class PaymentImageController extends NsgDataTableController<PaymentPhotoTable> {
       ids.add(e.photoItemId);
     }
     cmp.add(
-        name: PhotoItemGenerated.nameId,
-        value: ids,
-        comparisonOperator: NsgComparisonOperator.inList);
+      name: PhotoItemGenerated.nameId,
+      value: ids,
+      comparisonOperator: NsgComparisonOperator.inList,
+    );
     return NsgDataRequestParams(compare: cmp);
   }
 
@@ -57,19 +59,25 @@ class PaymentImageController extends NsgDataTableController<PaymentPhotoTable> {
   }
 
   @override
-  Future refreshData({List<NsgUpdateKey>? keys}) async {
-    await super.refreshData(keys: keys);
+  Future refreshData({
+    List<NsgUpdateKey>? keys,
+    NsgDataRequestParams? filter,
+  }) async {
+    await super.refreshData(keys: keys, filter: filter);
     images.clear();
     for (var e in items) {
       if (e.photoItemId.isEmpty) {
         continue;
       }
-      images.add(NsgFilePickerObject(
+      images.add(
+        NsgFilePickerObject(
           image: Image.memory(Uint8List.fromList(e.photoItem.photo)),
           description: e.name,
           fileType: NsgFilePickerObjectType.image,
           id: e.id,
-          isNew: false));
+          isNew: false,
+        ),
+      );
     }
     return;
   }

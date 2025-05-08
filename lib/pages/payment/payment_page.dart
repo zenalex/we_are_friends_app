@@ -26,62 +26,67 @@ class PaymentPage extends GetView<PaymentController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 NsgAppBar(
-                  text: controller.currentItem.isEmpty
-                      ? _textTitleNew
-                      : _textTitle,
+                  text:
+                      controller.currentItem.isEmpty
+                          ? _textTitleNew
+                          : _textTitle,
                   icon: Icons.arrow_back_ios_new,
                   colorsInverted: true,
                   bottomCircular: true,
                   onPressed: () {
-                    controller.itemPageCancel(context);
+                    controller.itemPageCancel(context: context);
                   },
                   icon2: Icons.check,
                   onPressed2: () {
-                    controller.itemPagePost(context);
+                    controller.itemPagePost();
                   },
                 ),
                 Expanded(
                   child: Container(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            NsgInput(
-                              dataItem: controller.currentItem,
-                              fieldName: PaymentGenerated.nameDate,
-                              label: 'Дата платежа',
-                            ),
-                            NsgInput(
-                              dataItem: controller.currentItem,
-                              fieldName: PaymentGenerated.nameEventId,
-                              label: 'Мероприятие',
-                              updateController: controller,
-                            ),
-                            NsgInput(
-                              dataItem: controller.currentItem,
-                              fieldName: PaymentGenerated.nameFriendId,
-                              label: 'Друг (плательщик)',
-                              updateController: controller,
-                            ),
-                            NsgText(
-                                'Текущая задолженность ${controller.currentItem.friend.getCredit(controller.currentItem.event)}'),
-                            NsgButton(
-                                text: 'Установить',
-                                onPressed: () {
-                                  controller.currentItem.sum = controller
-                                      .currentItem.friend
-                                      .getCredit(controller.currentItem.event);
-                                  controller.sendNotify();
-                                }),
-                            NsgInput(
-                              dataItem: controller.currentItem,
-                              fieldName: PaymentGenerated.nameSum,
-                              label: 'Сумма платежа',
-                            ),
-                            imageGallery(),
-                          ],
-                        ),
-                      )),
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          NsgInput(
+                            dataItem: controller.currentItem,
+                            fieldName: PaymentGenerated.nameDate,
+                            label: 'Дата платежа',
+                          ),
+                          NsgInput(
+                            dataItem: controller.currentItem,
+                            fieldName: PaymentGenerated.nameEventId,
+                            label: 'Мероприятие',
+                            updateController: controller,
+                          ),
+                          NsgInput(
+                            dataItem: controller.currentItem,
+                            fieldName: PaymentGenerated.nameFriendId,
+                            label: 'Друг (плательщик)',
+                            updateController: controller,
+                          ),
+                          NsgText(
+                            'Текущая задолженность ${controller.currentItem.friend.getCredit(controller.currentItem.event)}',
+                          ),
+                          NsgButton(
+                            text: 'Установить',
+                            onPressed: () {
+                              controller.currentItem.sum = controller
+                                  .currentItem
+                                  .friend
+                                  .getCredit(controller.currentItem.event);
+                              controller.sendNotify();
+                            },
+                          ),
+                          NsgInput(
+                            dataItem: controller.currentItem,
+                            fieldName: PaymentGenerated.nameSum,
+                            label: 'Сумма платежа',
+                          ),
+                          imageGallery(),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -96,7 +101,6 @@ class PaymentPage extends GetView<PaymentController> {
       showAsWidget: true,
       callback: (value) {},
       objectsList: Get.find<PaymentImageController>().images,
-      allowedFileFormats: const [],
     );
   }
 }

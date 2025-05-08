@@ -27,18 +27,19 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 NsgAppBar(
-                  text: controller.currentItem.isEmpty
-                      ? _textTitleNew
-                      : _textTitle,
+                  text:
+                      controller.currentItem.isEmpty
+                          ? _textTitleNew
+                          : _textTitle,
                   icon: Icons.arrow_back_ios_new,
                   colorsInverted: true,
                   bottomCircular: true,
                   onPressed: () {
-                    controller.itemPageCancel(context);
+                    controller.itemPageCancel(context: context);
                   },
                   icon2: Icons.check,
                   onPressed2: () {
-                    controller.itemPagePost(context);
+                    controller.itemPagePost();
                   },
                 ),
                 Expanded(
@@ -71,8 +72,7 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                             pc.currentEvent = controller.currentItem.owner;
                             pc.currentFriend = controller.currentItem.friend;
                             pc.eventFriendTable = controller.currentItem;
-                            pc.newItemPageOpen(
-                                context: context, pageName: Routes.paymentPage);
+                            pc.newItemPageOpen(pageName: Routes.paymentPage);
                           },
                         ),
                         NsgButton(
@@ -84,7 +84,7 @@ class EventsPageRow extends GetView<EventsFriendTableController> {
                             pc.refreshData();
                             Get.toNamed(Routes.paymentList);
                           },
-                        )
+                        ),
                       ],
                     ),
                     //)

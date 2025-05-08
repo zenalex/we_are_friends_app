@@ -24,34 +24,36 @@ class EventGroupPage extends GetView<EventGroupController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 NsgAppBar(
-                  text: controller.currentItem.isEmpty
-                      ? _textTitleNew
-                      : _textTitle,
+                  text:
+                      controller.currentItem.isEmpty
+                          ? _textTitleNew
+                          : _textTitle,
                   icon: Icons.arrow_back_ios_new,
                   colorsInverted: true,
                   bottomCircular: true,
                   onPressed: () {
-                    controller.itemPageCancel(context);
+                    controller.itemPageCancel(context: context);
                   },
                   icon2: Icons.check,
                   onPressed2: () {
-                    controller.itemPagePost(context);
+                    controller.itemPagePost();
                   },
                 ),
                 Expanded(
                   child: Container(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            NsgInput(
-                              dataItem: controller.currentItem,
-                              fieldName: EventGroupGenerated.nameName,
-                              label: 'Наименование',
-                            ),
-                          ],
-                        ),
-                      )),
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 15),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          NsgInput(
+                            dataItem: controller.currentItem,
+                            fieldName: EventGroupGenerated.nameName,
+                            label: 'Наименование',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

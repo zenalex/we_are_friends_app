@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:nsg_data/nsg_data.dart';
+import 'package:nsg_data/authorize/nsg_login_params.dart';
 
-class LoginParams extends NsgPhoneLoginParams {
+class LoginParams extends NsgLoginParams {
   LoginParams()
-      : super(
-            cardColor: Colors.grey[100],
-            buttonSize: 32,
-            //headerMessage: 'ТИТАН 112',
-            headerMessageVisible: false,
-            headerMessageVerification: 'Введите проверочный код',
-            textEnterPhone: 'Введите номер телефона',
-            textResendSms: 'Назад',
-            textSendSms: 'Отправить код',
-            textEnterCaptcha: 'Введите текст',
-            textLoginSuccessful: 'Успешная авторизация',
-            textEnterCorrectPhone: 'Введите правильный телефон',
-            textCheckInternet: 'Проверьте интернет соединение',
-            appbar: false,
-            useCaptcha: false);
+    : super(
+        cardColor: Colors.grey[100],
+        buttonSize: 32,
+        //headerMessage: 'ТИТАН 112',
+        headerMessageVisible: false,
+        headerMessageVerification: 'Введите проверочный код',
+        textEnterPhone: 'Введите номер телефона',
+        textResendSms: 'Назад',
+        textSendSms: 'Отправить код',
+        textEnterCaptcha: 'Введите текст',
+        textLoginSuccessful: 'Успешная авторизация',
+        textEnterCorrectPhone: 'Введите правильный телефон',
+        textCheckInternet: 'Проверьте интернет соединение',
+        appbar: false,
+        useCaptcha: false,
+      );
 
   @override
   String errorMessage(int statusCode) {

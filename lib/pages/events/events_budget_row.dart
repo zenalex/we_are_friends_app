@@ -26,18 +26,19 @@ class EventsBudgetRowPage extends GetView<EventsBudgetTableController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 NsgAppBar(
-                  text: controller.currentItem.isEmpty
-                      ? _textTitleNew
-                      : _textTitle,
+                  text:
+                      controller.currentItem.isEmpty
+                          ? _textTitleNew
+                          : _textTitle,
                   icon: Icons.arrow_back_ios_new,
                   colorsInverted: true,
                   bottomCircular: true,
                   onPressed: () {
-                    controller.itemPageCancel(context);
+                    controller.itemPageCancel(context: context);
                   },
                   icon2: Icons.check,
                   onPressed2: () {
-                    controller.itemPagePost(context);
+                    controller.itemPagePost();
                   },
                 ),
                 Expanded(
@@ -71,21 +72,20 @@ class EventsBudgetRowPage extends GetView<EventsBudgetTableController> {
                             pc.currentCostItem =
                                 controller.currentItem.costItem;
                             pc.eventBudgetTable = controller.currentItem;
-                            pc.newItemPageOpen(
-                                context: context,
-                                pageName: Routes.eventsCostPage);
+                            pc.newItemPageOpen(pageName: Routes.eventsCostPage);
                           },
                         ),
                         NsgButton(
-                            text: 'Список платежей',
-                            onPressed: () {
-                              var pc = Get.find<EventsController>();
-                              pc.currentEvent = controller.currentItem.owner;
-                              pc.currentCostItem =
-                                  controller.currentItem.costItem;
-                              pc.refreshData();
-                              Get.toNamed(Routes.eventsCostListPage);
-                            }),
+                          text: 'Список платежей',
+                          onPressed: () {
+                            var pc = Get.find<EventsController>();
+                            pc.currentEvent = controller.currentItem.owner;
+                            pc.currentCostItem =
+                                controller.currentItem.costItem;
+                            pc.refreshData();
+                            Get.toNamed(Routes.eventsCostListPage);
+                          },
+                        ),
                         NsgButton(
                           text: 'Фактические затраты',
                           onPressed: () {
@@ -95,10 +95,10 @@ class EventsBudgetRowPage extends GetView<EventsBudgetTableController> {
                                 controller.currentItem.costItem;
                             pc.eventBudgetTable = controller.currentItem;
                             pc.newItemPageOpen(
-                                context: context,
-                                pageName: Routes.eventsBudgetPayment);
+                              pageName: Routes.eventsBudgetPayment,
+                            );
                           },
-                        )
+                        ),
                       ],
                     ),
                     //)

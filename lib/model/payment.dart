@@ -8,12 +8,12 @@ class Payment extends PaymentGenerated {
     return [
       PaymentGenerated.nameEventId,
       PaymentGenerated.nameFriendId,
-      PaymentGenerated.nameSum
+      PaymentGenerated.nameSum,
     ].contains(fieldName);
   }
 
   @override
-  NsgValidateResult validateFieldValues() {
+  NsgValidateResult validateFieldValues({NsgBaseController? controller}) {
     var result = super.validateFieldValues();
     return result;
   }
